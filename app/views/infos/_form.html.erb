@@ -1,0 +1,82 @@
+<%= form_with(model: info, url: infos_path, local: true) do |form| %>
+  <% if info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(info.errors.count, "error") %> prohibited this info from being saved:</h2>
+
+      <ul>
+      <% info.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :short_description %><br>
+    <%= form.text_area :short_description,  size: '5x7' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :about_us %><br>
+    <%= form.text_area :about_us, size: '5x7' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telephone_number %><br>
+    <%= form.text_field :telephone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fax_number %><br>
+    <%= form.text_field :fax_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %><br>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :town %><br>
+    <%= form.text_field :town %>
+  </div>
+
+  <div class="field">
+    <%= form.label :postal_code %><br>
+    <%= form.text_field :postal_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %><br>
+    <%= form.text_field :country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_email %><br>
+    <%= form.text_field :contact_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :facebook_url %><br>
+    <%= form.text_field :facebook_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :instagram_url %><br>
+    <%= form.text_field :instagram_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :twitter_url %><br>
+    <%= form.text_field :twitter_url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Update Infos", class: "button submit" %>
+  </div>
+<% end %>

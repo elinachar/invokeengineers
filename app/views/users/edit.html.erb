@@ -1,0 +1,11 @@
+<div class="container-fluid user managing text-center">
+  <div class="row">
+    <div class="col-10 offset-1 card">
+      <h1>Editing User</h1><br>
+
+      <%= render 'form', user: @user %>
+
+      <%= link_to 'Go Back to my Account', @user, class: "button" %>
+    </div>
+  </div>
+</div>

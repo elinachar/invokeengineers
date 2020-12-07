@@ -1,0 +1,21 @@
+// Place all the styles related to the infos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.infos {
+  .form {
+    padding-left: 5%;
+    padding-right: 5%;
+    .field {
+      label {
+        float: left;
+      }
+
+      textarea,
+      input {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

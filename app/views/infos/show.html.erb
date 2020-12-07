@@ -1,0 +1,68 @@
+<div class="container-fluid infos managing text-center">
+  <div class="row">
+    <div class="col-10 offset-1 card">
+
+      <p>
+        <strong>Short description:</strong>
+        <%= @info.short_description %>
+      </p>
+
+      <p>
+        <strong>About us:</strong>
+        <%= @info.about_us %>
+      </p>
+
+      <p>
+        <strong>Telephone number:</strong>
+        <%= @info.telephone_number %>
+      </p>
+
+      <p>
+        <strong>Fax number:</strong>
+        <%= @info.fax_number %>
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <%= @info.email %>
+      </p>
+
+      <p>
+        <strong>Address:</strong>
+        <%= @info.address %>
+      </p>
+
+      <p>
+        <strong>Town:</strong>
+        <%= @info.town %>
+      </p>
+
+      <p>
+        <strong>Country:</strong>
+        <%= @info.country %>
+      </p>
+
+      <p>
+        <strong>Contact email:</strong>
+        <%= @info.contact_email %>
+      </p>
+
+      <p>
+        <strong>Facebook url:</strong>
+        <%= @info.facebook_url %>
+      </p>
+
+      <p>
+        <strong>Instagram url:</strong>
+        <%= @info.instagram_url %>
+      </p>
+
+      <p>
+        <strong>Twitter url:</strong>
+        <%= @info.twitter_url %>
+      </p>
+
+      <%= link_to 'Edit Infos', infos_edit_path, class: "button" %>
+    </div>
+  </div>
+</div>

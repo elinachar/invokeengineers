@@ -1,0 +1,13 @@
+<div class="container-fluid infos managing text-center">
+  <div class="row">
+    <div class="col-10 offset-1 card">
+      <h1>Editing Info</h1><br>
+
+      <div class="form">
+        <%= render 'form', info: @info %>
+      </div>
+
+      <br><%= link_to 'Cancel Editing Infos', infos_path, class: "button" %>
+    </div>
+  </div>
+</div>
