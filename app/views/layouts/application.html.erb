@@ -118,6 +118,33 @@
     <!-- End Main Body -->
 
     <!-- Start Footer -->
+    <footer>
+      <div class="container-fluid text-center">
+        <div class="social-media">
+          <% unless @infos.facebook_url.empty?  %>
+            <div class="facebook social-link">
+              <%= link_to "<i class='fab fa-facebook-f'></i>".html_safe, @infos.facebook_url, target: "blank" %>
+            </div>
+          <% end %>
+          <% unless @infos.twitter_url.empty?  %>
+            <div class="twitter social-link">
+              <%= link_to "<i class='fab fa-twitter'></i>".html_safe, @infos.facebook_url, target: "blank" %>
+            </div>
+          <% end %>
+          <% unless @infos.instagram_url.empty?  %>
+            <div class="instagram social-link">
+              <%= link_to "<i class='fab fa-instagram'></i>".html_safe, @infos.instagram_url, target: "blank" %>
+            </div>
+          <% end %>
+        </div>
+        <% if Date.today.year > 2020 %>
+          <p class="copyright">&copy; 2020 - <%= Date.today.year%> invoke engineering group</p>
+        <% else %>
+          <p class="copyright">&copy; 2020 invoke engineering group</p>
+        <% end %>
+        <p class="created-by">Developed and Designed by <%= link_to 'Elina Charalampous', 'https://elinacharalampous.gr', target: :_blank, class: "link" %></p>
+      </div> <!-- end container-fluid -->
+    </footer>
     <!-- End Footer
   </body>
 </html>
