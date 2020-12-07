@@ -1,15 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Invokeengineers</title>
+    <title>Invoke Engineers</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <% if content_for?(:html_meta_tags) %>
+      <%= yield(:html_meta_tags) %>
+    <% else %>
+      <meta name="description" content="Invoke Engineers">
+      <meta name="keywords" content="invoke egineers, invoke engineering group, kalamata, construction office">
+      <meta name="image" content='<%= asset_path('logo.png')  %>'>
+    <% end %>
+
+    <!-- Favicon Tag -->
+    <%= favicon_link_tag asset_path('favicon.png') %>
+
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="<%=request.original_url%>"/>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Oxygen:wght@300;400;700&family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 5 -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!-- CSS and JS -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to root_path do %>
+        <%= image_tag "logo.png", class: "img-responsive navbar-brand", width: "100" %>
+      <% end %>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Projects
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Projec 1</a>
+              <a class="dropdown-item" href="#">Project 2</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Αbout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">The Invoke Engineers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End Nav -->
+
+    <!-- Start Main Body -->
     <%= yield %>
+    <!-- End Main Body -->
+
+    <!-- Start Footer -->
+    <!-- End Footer
   </body>
 </html>

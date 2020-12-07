@@ -1,0 +1,142 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'vendor_prefixes';
+
+.index {
+  background-color: #191919;
+  background-color: #252525;
+  position: relative;
+
+  .lines {
+    .line {
+      height: 2px;
+      background-color: white;
+      position: absolute;
+    }
+
+    .line-horizontal {
+      padding: 0;
+      width: 100%;
+    }
+
+    .line-horizontal-left {
+      top: 50%
+    }
+
+    .line-diagonal {
+      width: 200vw;
+      @include transform-origin(left bottom);
+      left: -10%;
+      bottom: 0;
+    }
+
+    .line-horizontal-right {
+      top: 75%
+    }
+  }
+
+  .welcome {
+    background-color: white;
+    padding: 80px 50px;
+
+    h1 {
+      font-size: 60px;
+      line-height: 77px;
+      font-weight: 300;
+      margin-bottom: 0;
+    }
+
+    .description {
+      .keywords {
+        font-size: 25px;
+        margin: 30px 0;
+
+        img {
+          width: 15px;
+        }
+      }
+
+      .short-description {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+
+
+// SM
+@media (min-width: 576px) and (max-width: 767px){
+  .index {
+    .welcome {
+      h1 {
+        font-size: 50px;
+        line-height: 67px;
+      }
+
+      .description {
+        .keywords {
+          font-size: 20px;
+        }
+
+        img {
+          width: 12px;
+        }
+      }
+    }
+  }
+}
+
+// XS
+@media (max-width: 575px) {
+  .index {
+    .welcome {
+      padding: 50px 30px;
+      h1 {
+        font-size: 40px;
+        line-height: 57px;
+      }
+
+      .description {
+        .keywords {
+          font-size: 20px;
+        }
+
+        img {
+          width: 10px;
+        }
+      }
+    }
+  }
+}
+
+
+// XXS
+@media (max-width: 400px) {
+  .index {
+    .welcome {
+      h1 {
+        font-size: 30px;
+        line-height: 52px;
+      }
+    }
+  }
+}
+
+
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+// @media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }
