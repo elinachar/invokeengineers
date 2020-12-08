@@ -234,6 +234,16 @@
   }
 }
 
+// About
+.about {
+  padding: 35px;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+}
+
 // Team
 .team-presentation {
   background: $dark;
@@ -258,9 +268,6 @@
     font-size: 25px;
     letter-spacing: 2px;
     font-family: 'Fira Sans', sans-serif;
-    // font-family: 'Open Sans', sans-serif;
-    // font-family: 'Oxygen', sans-serif;
-    // font-family: 'Roboto', sans-serif;
   }
 
   .team-member-info {
@@ -272,12 +279,17 @@
       text-transform: lowercase;
       font-size: 20px;
       font-weight: 400;
-      // letter-spacing: px;
-      // font-family: 'Fira Sans', sans-serif;
-      // font-family: 'Open Sans', sans-serif;
       font-family: 'Oxygen', sans-serif;
-      // font-family: 'Roboto', sans-serif;
     }
+  }
+}
+
+// About Page
+.about-page {
+  margin-top: 20px;
+
+  h1 {
+    margin-bottom: 30px;
   }
 }
 

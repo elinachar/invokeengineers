@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   # post '#contact-form-submitted', to: "static_pages#contact_form_submitted"
   post 'thank-you', to: 'static_pages#contact_form_submitted'
+  get "about", to: 'static_pages#about'
   root "static_pages#index"
 
 end

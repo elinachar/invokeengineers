@@ -2,6 +2,9 @@ class StaticPagesController < ApplicationController
   def index
   end
 
+  def about
+  end
+
   def contact_form_submitted
     @first_name = params[:first_name]
     @last_name = params[:last_name]

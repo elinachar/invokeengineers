@@ -26,7 +26,30 @@ a:hover {
 
 .yellow-hover:hover {
   background: none;
-  color: $yellow;
+  color: $yellow!important;
+}
+
+.button.border-hover {
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+  font-size: 18px;
+  line-height: 28px;
+  border: 1px solid $dark;
+  padding: 18px;
+  width: 300px;
+  outline: 0px solid rgba(50, 115, 220, 0.3);
+  outline-offset: 0;
+  transition: outline 0.5s, outline-offset 0.5s;
+}
+
+.button.border-hover:hover {
+  outline: 12px solid;
+  outline-offset: -12px;
+  outline-color: #929292; //fallback
+  outline-color: rgba(37, 37, 37, 0.8);
+  // outline-color: rgba(0, 0, 0, 0.9);
+  box-shadow:1px 1px 5px #646464;
 }
 
 // Anchor

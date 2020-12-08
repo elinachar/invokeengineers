@@ -1,0 +1,13 @@
+<div class="container about-page">
+  <h1 class="text-center">About Invoke Engineering Group</h1>
+  <div class="row">
+    <div class="col-12 col-sm-10 offset-sm-1">
+      <div class="company-description">
+        <%= @infos.about_us %>
+      </div>
+    </div>
+  </div>
+  <%= link_to about_path, :action => 'go'  do %>
+    <div class="button border-hover">see our projects</div>
+  <% end %>
+</div>
