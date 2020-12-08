@@ -12,31 +12,44 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :first_name %>
+    <%= form.label :first_name %><br>
     <%= form.text_field :first_name %>
   </div>
 
   <div class="field">
-    <%= form.label :last_name %>
+    <%= form.label :last_name %><br>
     <%= form.text_field :last_name %>
   </div>
 
   <div class="field">
-    <%= form.label :proffession %>
+    <%= form.label :proffession %><br>
     <%= form.text_field :proffession %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.label :description %><br>
+    <%= form.text_area :description, size: '5x8' %>
   </div>
 
   <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
-  </div>
+    <%= form.label :image_url %><br>
+    <div class="row w-100 m-0">
+      <div class="col-6 text-left p-0">
+        <%= form.file_field :image_url %>
+      </div>
+      <% if team.persisted? %>
+        <div class="col-6 text-left">
+          <%= image_tag team.image_url_url.to_s, class: "img-responsive", alt: team.image_url_url.to_s %>
+        </div>
+      <% end %>
+    </div>
+  </div><br>
 
   <div class="actions">
-    <%= form.submit %>
-  </div>
+    <% if team.persisted? %>
+      <%= form.submit "Update Team Member", class: "button submit" %>
+    <% else %>
+      <%= form.submit "Create Team Member", class: "button submit" %>
+    <% end %>
+  </div><br>
 <% end %>

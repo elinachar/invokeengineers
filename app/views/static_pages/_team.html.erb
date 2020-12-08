@@ -1,0 +1,19 @@
+<div class="container-fluid team-presentation">
+  <% @team_members.each_with_index do |team_member, index| %>
+    <div class="row">
+      <div class="col-12 col-sm-6 team-member-photo">
+        <%= image_tag team_member.image_url_url.to_s, class: "img-responsive", alt: team_member.first_name %>
+        <p class="name d-block d-sm-none"><%= team_member.first_name + " " + team_member.last_name  %></p>
+      </div>
+      <% if index.even? %>
+        <div class="col-12 col-sm-6 team-member-info align-self-center">
+      <% else %>
+        <div class="col-12 col-sm-6 order-sm-first team-member-info align-self-center">
+      <% end %>
+        <p class="name d-none d-sm-block"><%= team_member.first_name + " " + team_member.last_name  %></p>
+        <p class="proffession"><%= team_member.proffession%></p>
+        <p class="description"><%= team_member.description%></p>
+      </div>
+    </div>
+  <% end %>
+</div>

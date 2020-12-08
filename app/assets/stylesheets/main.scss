@@ -45,6 +45,7 @@ a:hover {
 .managing {
   background: $dark;
   min-height: 100vh;
+  padding-bottom: 20px;
 
   .card {
     background: white;
@@ -57,8 +58,20 @@ a:hover {
     .actions input {
       padding: 10px;
       border: 1px solid $dark;
-      width: 200px;
+      // width: 200px;
       margin: auto;
+    }
+
+    .button {
+      margin: 5px;
+    }
+
+    .button.cancel {
+      background: #ffcccc;
+    }
+
+    .button.cancel:hover {
+      background: #ff9999;
     }
 
     .button.submit,
