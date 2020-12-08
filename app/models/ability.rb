@@ -10,9 +10,10 @@ class Ability
     elsif user.editor?
       can [:show, :update, :destroy], User, id: user.id
       can :manage, Info
+      can :manage, Team
     else
       can :read, :static_pages
-      # can :read, 
+      # can :read,
     end
 
     # The first argument to `can` is the action you are giving the user

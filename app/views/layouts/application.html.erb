@@ -83,7 +83,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <%= link_to "Manage Infos", infos_path, class: "dropdown-item"%>
                 <%= link_to "Manage Portfolio", user_path(current_user), class: "dropdown-item"%>
-                <%= link_to "Manage Team", user_path(current_user), class: "dropdown-item"%>
+                <%= link_to "Manage Team", teams_path, class: "dropdown-item"%>
                 <div class="dropdown-divider"></div>
                 <%= link_to "My Account", user_path(current_user), class: "dropdown-item"%>
                 <% if current_user.admin? %>
