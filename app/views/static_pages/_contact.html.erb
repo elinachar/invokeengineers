@@ -34,52 +34,55 @@
         </div> -->
       </div>
     </div>
-    <div class="col-12 col-sm-8 contact-form">
-      <%= form_with(url: thank_you_path, method: "post", remote: true) do |form| %>
-        <div class="row form-contact">
-          <div class="form-group col-sm-6">
-            <%= form.label :first_name, class: "sr-only" %>
-            <div class="form-wrapper">
-              <%= form.text_field :first_name, class: "form-control", placeholder: "First name", required: true %>
+    <div class="col-12 col-sm-8 align-self-center">
+      <div class="contact-form">
+        <%= form_with(url: thank_you_path, method: "post", remote: true) do |form| %>
+          <div class="row form-contact">
+            <div class="form-group col-sm-6">
+              <%= form.label :first_name, class: "sr-only" %>
+              <div class="form-wrapper">
+                <%= form.text_field :first_name, class: "form-control", placeholder: "First name", required: true %>
+              </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+              <%= form.label :last_name, class: "sr-only" %>
+              <div class="form-wrapper">
+                <%= form.text_field :last_name, class: "form-control", placeholder: "Last name", required: true %>
+              </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+              <%= form.label :email, class: "sr-only" %>
+              <div class="form-wrapper">
+                <%= form.text_field :email, class: "form-control", placeholder: "E-mail", required: true %>
+              </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+              <%= form.label :phone, class: "sr-only" %>
+              <div class="form-wrapper">
+                <%= form.telephone_field :phone, class: "form-control", placeholder: "Phone" %>
+              </div>
+            </div>
+
+            <div class="form-group col-12">
+              <%= form.label :message, class: "sr-only"  %>
+              <div class="form-wrapper">
+                <%= form.text_area :message, class: "form-control", placeholder: "Type your message here...", rows: 5, required: true %>
+              </div>
+            </div>
+
+            <div class="btn-submit col-12">
+              <%= form.submit "Submit", class: "button" %>
             </div>
           </div>
-
-          <div class="form-group col-sm-6">
-            <%= form.label :last_name, class: "sr-only" %>
-            <div class="form-wrapper">
-              <%= form.text_field :last_name, class: "form-control", placeholder: "Last name", required: true %>
-            </div>
-          </div>
-
-          <div class="form-group col-sm-6">
-            <%= form.label :email, class: "sr-only" %>
-            <div class="form-wrapper">
-              <%= form.text_field :email, class: "form-control", placeholder: "E-mail", required: true %>
-            </div>
-          </div>
-
-          <div class="form-group col-sm-6">
-            <%= form.label :phone, class: "sr-only" %>
-            <div class="form-wrapper">
-              <%= form.telephone_field :phone, class: "form-control", placeholder: "Phone" %>
-            </div>
-          </div>
-
-          <div class="form-group col-12">
-            <%= form.label :message, class: "sr-only"  %>
-            <div class="form-wrapper">
-              <%= form.text_area :message, class: "form-control", placeholder: "Type your message here...", rows: 5, required: true %>
-            </div>
-          </div>
-
-          <div class="btn-submit col-12">
-            <%= form.submit "Submit", class: "button" %>
-          </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+      <div class="contact-form-submitted text-center">
+        <p>We have received your message and we will respond as soon as possible.</p>
+      </div>
     </div>
   </div>
-  <div class="col-12 col-sm-8 contact-form-submitted text-center align-self-center">
-    <p>We have received your message and we will respond as soon as possible.</p>
-  </div>
+
 </div>

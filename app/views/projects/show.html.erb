@@ -2,41 +2,21 @@
   <div class="row">
     <div class="col-10 offset-1 card">
       <div class="row">
-        <div class="col-10 offset-1 col-sm-6 cover-image">
+        <div class="col-10 offset-1 col-sm-6 offset-sm-0 cover-image">
           <%= image_tag @project.cover_image_url_url.to_s, class:"image-responsive", alt: @project.name %><br>
+        </div>
+        <div class="col-10 offset-1 col-sm-6 offset-sm-0 align-self-center">
+          <p class="name"><%= @project.name %></p>
+          <!-- <p class="location"><i class='fas fa-map-marker-alt'></i> <%= @project.location %></p> -->
+          <p class="location">@<%= @project.location %></p>
+          <p class="year"><%= @project.year.year %></p>
+          <p class="short-description"><i><%= @project.short_description%></i></p>
+        </div>
+        <div class="col-12 description">
+            <%= simple_format(@project.description) %>
         </div>
       </div>
 
-      <p>
-        <strong>Name:</strong>
-        <%= @project.name %>
-      </p>
-
-      <p>
-        <strong>Short description:</strong>
-        <%= @project.short_description %>
-      </p>
-
-      <p>
-        <strong>Description:</strong>
-        <%= @project.description %>
-      </p>
-
-      <p>
-        <strong>Location:</strong>
-        <%= @project.location %>
-      </p>
-
-      <p>
-        <strong>Year:</strong>
-        <%= @project.year %>
-      </p>
-
-      <p>
-        <%= image_tag @project.cover_image_url_url.to_s, class:"image-responsive", alt: @project.name %><br>
-        <strong>Cover Image url:</strong>
-        <%= File.basename(@project.cover_image_url_url.to_s)%>
-      </p>
       <br>
       <% if  user_signed_in? && (current_user.admin? || current_user.editor?) %>
         <div class="row">
