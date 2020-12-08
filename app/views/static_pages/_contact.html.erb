@@ -1,0 +1,86 @@
+<div class="container-fluid contact">
+  <div class="row">
+    <div class="col-12 col-sm-4">
+      <div class="contact-info">
+        <address>
+          <%= image_tag "favicon_white.png", class: "image-responsive text-center" %><br>
+          <span class="company-name">invoke engineers</span><br>
+          <%= @infos.address %><br>
+          <%= @infos.town + ", " + @infos.postal_code %><br>
+          <%= @infos.country %><br>
+          <%= link_to @infos.telephone_number, "tel:" + @infos.telephone_number, class: "yellow-hover" %><br>
+          <%= link_to @infos.email, "mailto:" + @infos.contact_email, class: "yellow-hover" %>
+        </address>
+        <div class="social-media">
+          <% unless @infos.facebook_url.empty?  %>
+            <div class="facebook social-link">
+              <%= link_to "<i class='fab fa-facebook-f'></i>".html_safe, @infos.facebook_url, target: "blank", class: "yellow-hover" %>
+            </div>
+          <% end %>
+          <% unless @infos.twitter_url.empty?  %>
+            <div class="twitter social-link">
+              <%= link_to "<i class='fab fa-twitter'></i>".html_safe, @infos.facebook_url, target: "blank", class: "yellow-hover" %>
+            </div>
+          <% end %>
+          <% unless @infos.instagram_url.empty?  %>
+            <div class="instagram social-link">
+              <%= link_to "<i class='fab fa-instagram'></i>".html_safe, @infos.instagram_url, target: "blank", class: "yellow-hover" %>
+            </div>
+          <% end %>
+        </div>
+        <!-- <div class="col-xs-12 col-sm-6 google-map">
+          <div id="map"></div>
+        </div> -->
+      </div>
+    </div>
+    <div class="col-12 col-sm-8 contact-form">
+      <%= form_with(url: thank_you_path, method: "post", remote: true) do |form| %>
+        <div class="row form-contact">
+          <div class="form-group col-sm-6">
+            <%= form.label :first_name, class: "sr-only" %>
+            <div class="form-wrapper">
+              <%= form.text_field :first_name, class: "form-control", placeholder: "First name", required: true %>
+            </div>
+          </div>
+
+          <div class="form-group col-sm-6">
+            <%= form.label :last_name, class: "sr-only" %>
+            <div class="form-wrapper">
+              <%= form.text_field :last_name, class: "form-control", placeholder: "Last name", required: true %>
+            </div>
+          </div>
+
+          <div class="form-group col-sm-6">
+            <%= form.label :email, class: "sr-only" %>
+            <div class="form-wrapper">
+              <%= form.text_field :email, class: "form-control", placeholder: "E-mail", required: true %>
+            </div>
+          </div>
+
+          <div class="form-group col-sm-6">
+            <%= form.label :phone, class: "sr-only" %>
+            <div class="form-wrapper">
+              <%= form.telephone_field :phone, class: "form-control", placeholder: "Phone" %>
+            </div>
+          </div>
+
+          <div class="form-group col-12">
+            <%= form.label :message, class: "sr-only"  %>
+            <div class="form-wrapper">
+              <%= form.text_area :message, class: "form-control", placeholder: "Type your message here...", rows: 5, required: true %>
+            </div>
+          </div>
+
+          <div class="btn-submit col-12">
+            <%= form.submit "Submit", class: "button" %>
+          </div>
+
+          <div class="svg-wrapper">
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-12 col-sm-8 contact-form-submitted text-center align-self-center">
+    <p>We have received your message and we will respond as soon as possible.</p>
+  </div>
+</div>

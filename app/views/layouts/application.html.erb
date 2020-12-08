@@ -81,7 +81,7 @@
                 <% end %>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "Manage Infos", user_path(current_user), class: "dropdown-item"%>
+                <%= link_to "Manage Infos", infos_path, class: "dropdown-item"%>
                 <%= link_to "Manage Portfolio", user_path(current_user), class: "dropdown-item"%>
                 <%= link_to "Manage Team", user_path(current_user), class: "dropdown-item"%>
                 <div class="dropdown-divider"></div>
@@ -123,17 +123,17 @@
         <div class="social-media">
           <% unless @infos.facebook_url.empty?  %>
             <div class="facebook social-link">
-              <%= link_to "<i class='fab fa-facebook-f'></i>".html_safe, @infos.facebook_url, target: "blank" %>
+              <%= link_to "<i class='fab fa-facebook-f'></i>".html_safe, @infos.facebook_url, target: "blank", class: "yellow-hover" %>
             </div>
           <% end %>
           <% unless @infos.twitter_url.empty?  %>
             <div class="twitter social-link">
-              <%= link_to "<i class='fab fa-twitter'></i>".html_safe, @infos.facebook_url, target: "blank" %>
+              <%= link_to "<i class='fab fa-twitter'></i>".html_safe, @infos.facebook_url, target: "blank", class: "yellow-hover" %>
             </div>
           <% end %>
           <% unless @infos.instagram_url.empty?  %>
             <div class="instagram social-link">
-              <%= link_to "<i class='fab fa-instagram'></i>".html_safe, @infos.instagram_url, target: "blank" %>
+              <%= link_to "<i class='fab fa-instagram'></i>".html_safe, @infos.instagram_url, target: "blank", class: "yellow-hover" %>
             </div>
           <% end %>
         </div>
@@ -142,9 +142,14 @@
         <% else %>
           <p class="copyright">&copy; 2020 invoke engineering group</p>
         <% end %>
-        <p class="created-by">Developed and Designed by <%= link_to 'Elina Charalampous', 'https://elinacharalampous.gr', target: :_blank, class: "link" %></p>
+        <p class="created-by">Developed and Designed by <%= link_to 'Elina Charalampous', 'https://elinacharalampous.gr', target: :_blank, class: "link yellow-hover" %></p>
       </div> <!-- end container-fluid -->
     </footer>
-    <!-- End Footer
+    <!-- End Footer -->
+
+    <!-- Google Maps API key -->
+    <!-- <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlCx7ggz1e6dWPELSn65yERXxnC9p98Rk&callback=initMap">
+      </script> -->
   </body>
 </html>

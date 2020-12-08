@@ -4,7 +4,8 @@
 @import 'vendor_prefixes';
 @import 'colors';
 
-.index {
+// Welcome
+.welcome {
   background-color: $dark;
   position: relative;
 
@@ -36,7 +37,7 @@
     }
   }
 
-  .welcome {
+  .welcome-message {
     background-color: white;
     padding: 80px 50px;
 
@@ -64,12 +65,177 @@
   }
 }
 
+// Contact
+.contact {
+  background: $dark;
+  padding: 20px;
+  color: white;
+  padding: 50px;
+
+  .contact-info {
+    text-align: right;
+    // float: center;
+    padding-right: 50px;
+
+    img {
+      width: 30px;
+    }
+
+    .company-name {
+      font-family: 'Fira Sans', sans-serif;
+      font-size: 20px;
+    }
+
+    a {
+      color: white;
+    }
+
+
+    #map {
+      height: 200px;
+    }
+  }
+
+  .contact-form {
+    clear: both;
+    input,
+    textarea {
+      background: $dark;
+      color: white;
+      border: none;
+      border-radius: 0;
+      border-bottom: 1px solid white;
+    }
+
+    .form-wrapper {
+      position: relative;
+    }
+
+    .form-wrapper:after {
+      content: '';
+      width: 0%;
+      height: 0%;
+      border-left: 1px solid white;
+      border-top: 1px solid white;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .form-wrapper:before {
+      content: '';
+      width: 0%;
+      height: 0%;
+      border-top: 1px solid white;
+      border-right: 1px solid white;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    .form-wrapper.animated:after,
+    .form-wrapper.animated:before {
+      // -webkit-animation: hide-borders 0.5s ease-out forwards;
+      //   animation: hide-borders 0.5s ease-out forwards;
+    }
+
+    .form-wrapper:hover:after,
+    .form-wrapper:hover:before {
+      -webkit-animation: show-borders 1s ease-out both;
+        animation: show-borders 1s ease-out both;
+    }
+
+    @keyframes show-borders {
+      0% {
+        height: 0%;
+        width: 0%;
+      }
+      50% {
+        height: 100%;
+        width: 0%
+      }
+      100% {
+        height: 100%;
+        width: 50%;
+      }
+    }
+
+    @-webkit-keyframes show-borders {
+      0% {
+        height: 0%;
+        width: 0%;
+      }
+      50% {
+        height: 100%;
+        width: 0%
+      }
+      100% {
+        height: 100%;
+        width: 50%;
+      }
+    }
+
+    @keyframes hide-borders {
+      0% {
+        height: 100%;
+        width: 50%;
+      }
+      50% {
+        height: 100%;
+        width: 0%
+      }
+      100% {
+        height: 0%;
+        width: 0%;
+      }
+    }
+
+    @-webkit-keyframes hide-borders {
+      0% {
+        height: 1000%;
+        width: 50%;
+      }
+      50% {
+        height: 100%;
+        width: 0%
+      }
+      100% {
+        height: 0%;
+        width: 0%;
+      }
+    }
+
+    .form-contact .form-control:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    .button {
+      background: white;
+      color: $dark;
+      width: 100%;
+      padding: 15px;
+      border: none;
+    }
+
+    .button:hover {
+      color: white;
+      background: $yellow;
+    }
+  }
+
+  .contact-form-submitted {
+    display: none;
+    color: white;
+    padding: 20px;
+  }
+}
 
 
 // SM
 @media (min-width: 576px) and (max-width: 767px){
-  .index {
-    .welcome {
+  .welcome {
+    .welcome-message {
       h1 {
         font-size: 50px;
         line-height: 67px;
@@ -88,10 +254,12 @@
   }
 }
 
+//
+
 // XS
 @media (max-width: 575px) {
-  .index {
-    .welcome {
+  .welcome {
+    .welcome-message {
       padding: 50px 30px;
       h1 {
         font-size: 40px;
@@ -114,8 +282,8 @@
 
 // XXS
 @media (max-width: 400px) {
-  .index {
-    .welcome {
+  .welcome {
+    .welcome-message {
       h1 {
         font-size: 30px;
         line-height: 52px;
