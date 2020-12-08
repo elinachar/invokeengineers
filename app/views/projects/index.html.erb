@@ -1,0 +1,26 @@
+<div class="container-fluid project managing text-center">
+  <div class="row">
+    <div class="col-10 offset-1 card">
+
+      <h1>Projects</h1><br>
+
+      <div class="row">
+        <% @projects.each do |project| %>
+          <div class="col-12 col-sm-6">
+            <%= link_to project, :action => 'go'  do %>
+              <div class="project-card border-hover">
+                  <%= image_tag project.cover_image_url_url.to_s, class: "img-responsive", alt: project.name %>
+                  <p class="name"><%= project.name %></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <br>
+      <% if  user_signed_in? && (current_user.admin? || current_user.editor?) %>
+        <%= link_to 'Create New Project', new_project_path, class: "button" %>
+      <% end %>
+    </div>
+  </div>
+</div>

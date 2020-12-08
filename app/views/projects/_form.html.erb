@@ -1,0 +1,60 @@
+<%= form_with(model: project, local: true) do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :short_description %>
+    <%= form.text_area :short_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.date_select :year %>
+  </div><br>
+
+  <div class="field">
+    <%= form.label :cover_image_url %><br>
+    <div class="row w-100 m-0">
+      <div class="col-6 text-left p-0">
+        <%= form.file_field :cover_image_url %>
+      </div>
+      <% if project.persisted? %>
+        <div class="col-6 text-left">
+          <%= image_tag project.cover_image_url_url.to_s, class: "img-responsive", alt: project.cover_image_url_url.to_s %>
+        </div>
+      <% end %>
+    </div>
+  </div><br>
+
+  <div class="actions">
+    <% if project.persisted? %>
+      <%= form.submit "Update Portfolio Project", class: "button submit" %>
+    <% else %>
+      <%= form.submit "Create Portfolio Project", class: "button submit" %>
+    <% end %>
+  </div><br>
+<% end %>

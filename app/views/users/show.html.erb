@@ -24,10 +24,14 @@
         <%= @user.editor %>
       </p>
 
-      <%= link_to 'Edit Account', edit_user_path(@user), class: "button" %>
-      <% if current_user.admin? %>
-        <br><%= link_to 'Go Back to all Users', users_path, class: "button" %>
-      <% end %>
+      <div class="row">
+        <div class="col-12 text-center">
+          <%= link_to 'Edit Account', edit_user_path(@user), class: "button" %>
+          <% if current_user.admin? %>
+            <%= link_to 'Go Back to all Users', users_path, class: "button" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

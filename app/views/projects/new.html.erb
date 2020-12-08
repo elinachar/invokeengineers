@@ -1,0 +1,13 @@
+<div class="container-fluid project managing text-center">
+  <div class="row">
+    <div class="col-10 offset-1 card">
+      <h1>New Project</h1><br>
+
+      <div class="form">
+        <%= render 'form', project: @project %>
+      </div>
+
+      <%= link_to 'Cancel creating new project', projects_path, class:"button cancel" %>
+    </div>
+  </div>
+</div>

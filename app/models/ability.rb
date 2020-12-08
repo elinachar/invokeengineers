@@ -11,8 +11,10 @@ class Ability
       can [:show, :update, :destroy], User, id: user.id
       can :manage, Info
       can :manage, Team
+      can :manage, Project
     else
       can :read, :static_pages
+      can [:show, :index], Project
       # can :read,
     end
 
