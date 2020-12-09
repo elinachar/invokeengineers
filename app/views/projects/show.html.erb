@@ -7,14 +7,34 @@
         </div>
         <div class="col-10 offset-1 col-sm-6 offset-sm-0 align-self-center">
           <p class="name"><%= @project.name %></p>
-          <!-- <p class="location"><i class='fas fa-map-marker-alt'></i> <%= @project.location %></p> -->
-          <p class="location">@<%= @project.location %></p>
-          <p class="year"><%= @project.year.year %></p>
           <p class="short-description"><i><%= @project.short_description%></i></p>
+          <% if @project.year_string.nil? || @project.year_string.empty? %>
+            <p class="location-year">@<%= @project.location %></p>
+          <% else %>
+            <p class="location-year">@<%= @project.location %> <span>&#8226;</span> <%= @project.year %></p>
+          <% end %>
+
         </div>
         <div class="col-12 description">
             <%= simple_format(@project.description) %>
         </div>
+      </div>
+
+      <div class="project-images">
+        <% unless @project.photographer.nil? || @project.photographer.empty? %>
+          <p class="photographer">
+            <% if @project.photographer_website.nil? || @project.photographer_website.empty? %>
+              Photos by <%= @project.photographer %>
+            <% else %>
+              Photos by <%= link_to @project.photographer, @project.photographer_website, target: "_blank", class: "photographer-link" %>
+            <% end %>
+          </p>
+        <% end %>
+        <% @project_images.each do |project_image| %>
+          <div class="col-10 offset-1 project-image">
+            <%= image_tag project_image.image_url_url.to_s, class: "image_responsive w-100", alt: project_image.image_url_identifier %>
+          </div>
+        <% end %>
       </div>
 
       <br>

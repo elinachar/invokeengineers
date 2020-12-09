@@ -47,6 +47,9 @@ gem 'cancancan', '~> 2.0'
 # Gem for uploading images
 gem 'carrierwave'
 
+# Gem for nested associations
+gem 'cocoon'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

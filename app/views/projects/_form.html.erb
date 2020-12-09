@@ -1,4 +1,4 @@
-<%= form_with(model: project, local: true) do |form| %>
+<%= form_with(model: project, local: true) do |f| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -12,35 +12,45 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :short_description %>
-    <%= form.text_area :short_description %>
+    <%= f.label :short_description %>
+    <%= f.text_area :short_description %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= f.label :description %>
+    <%= f.text_area :description, size: "5x10" %>
   </div>
 
   <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
   </div>
 
   <div class="field">
-    <%= form.label :year %>
-    <%= form.date_select :year %>
+    <%= f.label "Year" %>
+    <%= f.text_field :year_string %>
+  </div>
+
+  <div class="field">
+    <%= f.label :photographer %>
+    <%= f.text_field :photographer %>
+  </div>
+
+  <div class="field">
+    <%= f.label :photographer_website %>
+    <%= f.text_field :photographer_website %>
   </div><br>
 
   <div class="field">
-    <%= form.label :cover_image_url %><br>
+    <%= f.label :cover_image_url %><br>
     <div class="row w-100 m-0">
       <div class="col-6 text-left p-0">
-        <%= form.file_field :cover_image_url %>
+        <%= f.file_field :cover_image_url %>
       </div>
       <% if project.persisted? %>
         <div class="col-6 text-left">
@@ -50,11 +60,21 @@
     </div>
   </div><br>
 
+  <div id="project_images">
+    <p class="text-left">Project Images</p>
+    <%= f.fields_for :project_images do |project_image| %>
+      <%= render 'project_image_fields', f: project_image %>
+    <% end %>
+    <div class="association-link">
+      <%= link_to_add_association 'Add Project Image', f, :project_images, class: "button w-80" %>
+    </div>
+  </div><br><br>
+
   <div class="actions">
     <% if project.persisted? %>
-      <%= form.submit "Update Portfolio Project", class: "button submit" %>
+      <%= f.submit "Update Portfolio Project", class: "button submit w-100" %>
     <% else %>
-      <%= form.submit "Create Portfolio Project", class: "button submit" %>
+      <%= f.submit "Create Portfolio Project", class: "button submit w-100" %>
     <% end %>
   </div><br>
 <% end %>

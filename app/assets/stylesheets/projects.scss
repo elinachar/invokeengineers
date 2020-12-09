@@ -7,6 +7,26 @@
     img {
       width: 50px;
     }
+
+    #project_images {
+      p {
+        font-weight: 500;
+        font-size: 19px;
+      }
+
+      .nested-fields {
+        margin-bottom: 10px;
+
+        .delete-x {
+          color: red;
+        }
+
+        .delete-x:hover{
+          color: #b20000;
+          background: white;
+        }
+      }
+    }
   }
 
   .card {
@@ -27,7 +47,26 @@
   }
 
   .description {
-    margin: 30px 0;
+    margin: 30px 0 20px 0;
     text-align: left;
+  }
+
+  .project-images {
+    .photographer {
+      margin-bottom: 10px;
+
+      .photographer-link {
+        text-decoration: underline;
+      }
+
+      .photographer-link:hover {
+        background: none;
+        color: grey;
+      }
+    }
+
+    .project-image {
+      margin-bottom: 20px;
+    }
   }
 }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_08_202043) do
+ActiveRecord::Schema.define(version: 2020_12_09_104236) do
 
   create_table "infos", force: :cascade do |t|
     t.text "short_description"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 2020_12_08_202043) do
     t.string "postal_code"
   end
 
+  create_table "project_images", force: :cascade do |t|
+    t.string "image_url"
+    t.integer "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_images_on_project_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.text "short_description"
@@ -39,6 +47,9 @@ ActiveRecord::Schema.define(version: 2020_12_08_202043) do
     t.string "cover_image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photographer"
+    t.string "photographer_website"
+    t.string "year_string"
   end
 
   create_table "teams", force: :cascade do |t|

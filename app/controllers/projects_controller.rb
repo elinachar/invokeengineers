@@ -11,15 +11,18 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @project_images = @project.project_images
   end
 
   # GET /projects/new
   def new
     @project = Project.new
+    3.times { @project.project_images.build}
   end
 
   # GET /projects/1/edit
   def edit
+    @project_images = @project.project_images
   end
 
   # POST /projects
@@ -70,6 +73,8 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name, :short_description, :description, :location, :year, :cover_image_url)
+      params.require(:project).permit(:name, :short_description, :description,
+        :location, :year_string, :cover_image_url, :photographer, :photographer_website,
+      project_images_attributes: [:id, :image_url, :_destroy])
     end
 end

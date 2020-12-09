@@ -1,0 +1,29 @@
+<div class="nested-fields">
+  <% images = @project.project_images %>
+
+  <% if images.count > 0 && (f.index.is_a? Numeric) %>
+    <div class="row uploaded-image">
+      <%= f.label :image_url, " #{f.index.to_i + 1 }", class: "col-1 sr-only" %>
+      <div class="col-2">
+        <%= image_tag( images[f.index.to_i].image_url_url.to_s , class: "img-fluid", alt: images[f.index.to_i].image_url_identifier.to_s) %>
+      </div>
+      <p class="col-3 display-md"><%= images[f.index.to_i].image_url_identifier.to_s %></p>
+      <div class="col-7 col-md-5">
+        <%= f.file_field :image_url %>
+      </div>
+      <%= link_to_remove_association '<i class="fas fa-times fa-lg"></i>'.html_safe, f, class: "delete-x col-1 col-md-2 text-center", data: { confirm: 'Are you sure that you want to delete this project image?' } %>
+    </div>
+  <% else %>
+    <div class="upload-image">
+      <div class="row">
+        <%= f.label :image_url, "Image #{f.index.to_i + 1 }", class: "photo-label sr-only" %>
+        <div class="col-8 text-left">
+          <%= f.file_field :image_url %>
+        </div>
+        <div class="col-2 text-right">
+          <%= link_to_remove_association '<i class="fas fa-times fa-lg"></i>'.html_safe, f, class: "delete-x" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
