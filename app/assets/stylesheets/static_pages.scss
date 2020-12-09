@@ -67,7 +67,8 @@
 }
 
 // Projects
-.projects {
+.projects,
+.project.index {
   padding: 35px;
 
   h1 {
@@ -75,8 +76,8 @@
   }
 
   .project-card {
-    position: relative;
     text-align: center;
+    margin-bottom: 40px;
 
     img {
       width: 100%;
