@@ -1,0 +1,120 @@
+@import 'colors';
+@import 'vendor_prefixes';
+
+nav {
+  background-color: white!important;
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+  box-shadow:1px 1px 5px #646464;
+  height: 58px!important;
+
+  .logo {
+    margin-top: 5px!important;
+    margin-left: 18px;
+    position: relative;
+    height: 35px;
+    width: 125px;
+
+    .text {
+      font-family: 'Fira Sans', sans-serif;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-right: 1px solid black;
+      padding-right: 5px;
+      height: 35px;
+
+      .invoke {
+        top: 0;
+        display: block;
+        margin-top: -7px;
+      }
+
+      .engineers {
+        display: block;
+        @include transform(rotate(180deg));
+        margin-top: -40px;
+      }
+    }
+
+    img {
+      position: absolute;
+      width: 29px;
+      right: 0;
+      top: 2px;
+
+    }
+  }
+
+  .logo:hover {
+    @include filter(drop-shadow(1px 1px 5px #646464));
+  }
+
+  .navbar-nav {
+    padding-right: 10px;
+  }
+
+  a.nav-link {
+    color: $dark!important;
+    height: 58px;
+    padding-top: 16px;
+  }
+
+  a.nav-link:hover,
+  .nav-item.active a.nav-link {
+    color: white!important;
+    background-color: $dark!important;
+  }
+
+  .dropdown-menu {
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow:1px 1px 5px #646464;
+    margin-left: -85px;
+
+    a.dropdown-item:hover {
+      color: white;
+      background-color: $dark;
+    }
+  }
+
+  .navbar-toggler {
+    outline: 0px solid rgba(50, 115, 220, 0.3);
+    outline-offset: 0;
+    transition: outline 0.5s, outline-offset 0.5s;
+  }
+
+  .navbar-toggler:hover {
+    outline: 5px solid;
+    outline-offset: -5px;
+    outline-color: #929292; //fallback
+    outline-color: rgba(37, 37, 37, 0.2);
+  }
+}
+
+// XS and SM
+@media (max-width: 767px){
+  nav {
+    .dropdown-menu {
+      margin-left: 0px;
+    }
+
+    .navbar-nav {
+      padding-right: 0px;
+    }
+
+    .navbar-collapse {
+      background-color: white;
+      position: absolute;
+      top: 58px;
+      left: 0;
+      width: 100%;
+
+      ul li .nav-link {
+        padding-left: 20px;
+      }
+    }
+  }
+}
