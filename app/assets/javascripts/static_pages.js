@@ -3,9 +3,16 @@ $(document).on('turbolinks:load', function() {
 
   // WELCOME
   function resizeDiagonalLineIndex() {
-    var indexWidth = $(".welcome").outerWidth() * 1.08;
-    var indexHeight = $(".welcome").outerHeight();
-    var w = Math.atan(indexHeight / indexWidth)
+    if (window.location.pathname == "/") { // change when hide under_construction
+    // if (window.location.pathname == "/under-construction") { 
+      var indexWidth = $(".under-construction").outerWidth() * 1.08;
+      var indexHeight = $(".under-construction").outerHeight();
+      var w = Math.atan(indexHeight / indexWidth)
+    } else {
+      var indexWidth = $(".welcome").outerWidth() * 1.08;
+      var indexHeight = $(".welcome").outerHeight();
+      var w = Math.atan(indexHeight / indexWidth)
+    }
     $(".line-diagonal").css({"transform": "rotate(-" + w +"rad)", "-ms-transform": "rotate(-" + w +"rad)","  -webkit-transform": "rotate(-" + w +"rad)" })
   }
 

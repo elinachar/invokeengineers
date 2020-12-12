@@ -1,8 +1,14 @@
 class StaticPagesController < ApplicationController
+
   def index
+    authorize! :index, current_user
   end
 
   def about
+    authorize! :about, current_user
+  end
+
+  def under_construction
   end
 
   def contact_form_submitted

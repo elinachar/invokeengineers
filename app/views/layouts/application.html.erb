@@ -40,113 +40,117 @@
   </head>
 
   <body>
-    <nav class="navbar fixed-top navbar-expand-md navbar-light">
-      <%= link_to root_path do %>
-        <div class="logo navbar-brand smooth">
-          <div class="text text-right">
-            <span class="invoke">Invoke</span><br>
-            <span class="engineers">engineers</span>
+    <% unless action_name == "under_construction" %>
+      <nav class="navbar fixed-top navbar-expand-md navbar-light">
+        <%= link_to root_path do %>
+          <div class="logo navbar-brand smooth">
+            <div class="text text-right">
+              <span class="invoke">Invoke</span><br>
+              <span class="engineers">engineers</span>
+            </div>
+            <%= image_tag "logo_circle_black.png", class: "img-responsive", id: "#"%>
           </div>
-          <%= image_tag "logo_circle_black.png", class: "img-responsive", id: "#"%>
-        </div>
 
-      <% end %>
+        <% end %>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/projects">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link smooth" href="/#contact">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about">Αbout</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link smooth" href="/#invoke-engineers">The Invoke Engineers</a>
-          </li>
-          <% if user_signed_in? %>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <% if current_user.admin? %>
-                  Admin
-                <% elsif current_user.editor? %>
-                  Editor
-                <% else %>
-                  User
-                <% end %>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "Manage Infos", infos_path, class: "dropdown-item"%>
-                <%= link_to "Manage Projects", projects_path, class: "dropdown-item"%>
-                <%= link_to "Manage Team", teams_path, class: "dropdown-item"%>
-                <div class="dropdown-divider"></div>
-                <%= link_to "My Account", user_path(current_user), class: "dropdown-item"%>
-                <% if current_user.admin? %>
-                  <%= link_to "Manage All Users", users_path, class: "dropdown-item"%>
-                <% end %>
-                <div class="dropdown-divider"></div>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
-              </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/projects">Projects</a>
             </li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
-    <!-- End Nav -->
+            <li class="nav-item">
+              <a class="nav-link smooth" href="/#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">Αbout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link smooth" href="/#invoke-engineers">The Invoke Engineers</a>
+            </li>
+            <% if user_signed_in? %>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <% if current_user.admin? %>
+                    Admin
+                  <% elsif current_user.editor? %>
+                    Editor
+                  <% else %>
+                    User
+                  <% end %>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to "Manage Infos", infos_path, class: "dropdown-item"%>
+                  <%= link_to "Manage Projects", projects_path, class: "dropdown-item"%>
+                  <%= link_to "Manage Team", teams_path, class: "dropdown-item"%>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to "My Account", user_path(current_user), class: "dropdown-item"%>
+                  <% if current_user.admin? %>
+                    <%= link_to "Manage All Users", users_path, class: "dropdown-item"%>
+                  <% end %>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+      <!-- End Nav -->
 
-    <!-- Start Main Body -->
-    <div class="anchor">
-      <!-- flash messages -->
-      <div class="container">
-        <% if notice %>
-          <p id="notice" class="alert alert-info text-center", role="alert"><%= notice %></p>
-        <% end %>
-        <% if alert %>
-          <p id="alert" class="alert alert-danger text-center", role="alert"><%= alert %></p>
-        <% end %>
-      </div>
-
-      <div class="main-body">
-        <%= yield %>
-      </div>
-    </div>
-    <!-- End Main Body -->
-
-    <!-- Start Footer -->
-    <footer>
-      <div class="container-fluid text-center">
-        <div class="social-media">
-          <% unless @infos.facebook_url.empty?  %>
-            <div class="facebook social-link">
-              <%= link_to "<i class='fab fa-facebook-f'></i>".html_safe, @infos.facebook_url, target: "blank", class: "yellow-hover" %>
-            </div>
+      <!-- Start Main Body -->
+      <div class="anchor">
+        <!-- flash messages -->
+        <div class="container">
+          <% if notice %>
+            <p id="notice" class="alert alert-info text-center", role="alert"><%= notice %></p>
           <% end %>
-          <% unless @infos.twitter_url.empty?  %>
-            <div class="twitter social-link">
-              <%= link_to "<i class='fab fa-twitter'></i>".html_safe, @infos.facebook_url, target: "blank", class: "yellow-hover" %>
-            </div>
-          <% end %>
-          <% unless @infos.instagram_url.empty?  %>
-            <div class="instagram social-link">
-              <%= link_to "<i class='fab fa-instagram'></i>".html_safe, @infos.instagram_url, target: "blank", class: "yellow-hover" %>
-            </div>
+          <% if alert %>
+            <p id="alert" class="alert alert-danger text-center", role="alert"><%= alert %></p>
           <% end %>
         </div>
-        <% if Date.today.year > 2020 %>
-          <p class="copyright">&copy; 2020 - <%= Date.today.year%> invoke engineering group</p>
-        <% else %>
-          <p class="copyright">&copy; 2020 invoke engineering group</p>
-        <% end %>
-        <p class="created-by">Developed and Designed by <%= link_to 'Elina Charalampous', 'https://elinacharalampous.gr', target: :_blank, class: "link yellow-hover" %></p>
-      </div> <!-- end container-fluid -->
-    </footer>
-    <!-- End Footer -->
+
+        <div class="main-body">
+          <%= yield %>
+        </div>
+      </div>
+      <!-- End Main Body -->
+
+      <!-- Start Footer -->
+      <footer>
+        <div class="container-fluid text-center">
+          <div class="social-media">
+            <% unless @infos.facebook_url.empty?  %>
+              <div class="facebook social-link">
+                <%= link_to "<i class='fab fa-facebook-f'></i>".html_safe, @infos.facebook_url, target: "blank", class: "yellow-hover" %>
+              </div>
+            <% end %>
+            <% unless @infos.twitter_url.empty?  %>
+              <div class="twitter social-link">
+                <%= link_to "<i class='fab fa-twitter'></i>".html_safe, @infos.facebook_url, target: "blank", class: "yellow-hover" %>
+              </div>
+            <% end %>
+            <% unless @infos.instagram_url.empty?  %>
+              <div class="instagram social-link">
+                <%= link_to "<i class='fab fa-instagram'></i>".html_safe, @infos.instagram_url, target: "blank", class: "yellow-hover" %>
+              </div>
+            <% end %>
+          </div>
+          <% if Date.today.year > 2020 %>
+            <p class="copyright">&copy; 2020 - <%= Date.today.year%> invoke engineering group</p>
+          <% else %>
+            <p class="copyright">&copy; 2020 invoke engineering group</p>
+          <% end %>
+          <p class="created-by">Developed and Designed by <%= link_to 'Elina Charalampous', 'https://elinacharalampous.gr', target: :_blank, class: "link yellow-hover" %></p>
+        </div> <!-- end container-fluid -->
+      </footer>
+      <!-- End Footer -->
+    <% else %>
+      <%= yield %>
+    <% end %>
 
     <!-- Google Maps API key -->
     <!-- <script async defer

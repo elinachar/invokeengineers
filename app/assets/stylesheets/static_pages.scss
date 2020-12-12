@@ -5,7 +5,8 @@
 @import 'colors';
 
 // Welcome
-.welcome {
+.welcome,
+.under-construction {
   background-color: $dark;
   position: relative;
   padding-bottom: 10px;
@@ -63,6 +64,16 @@
         font-size: 18px;
       }
     }
+  }
+}
+
+// Under construction
+.under-construction {
+  min-height: 100vh;
+
+  .welcome-message {
+    margin-top: 10vh;
+    min-height: 80vh;
   }
 }
 
@@ -340,7 +351,8 @@
 
 // SM
 @media (min-width: 576px) and (max-width: 767px){
-  .welcome {
+  .welcome,
+  .under-construction {
     .welcome-message {
       h1 {
         font-size: 50px;
@@ -371,7 +383,8 @@
 
 // XS
 @media (max-width: 575px) {
-  .welcome {
+  .welcome,
+  .under-construction {
     .welcome-message {
       padding: 50px 30px;
       h1 {
@@ -427,7 +440,8 @@
 
 // XXS
 @media (max-width: 400px) {
-  .welcome {
+  .welcome,
+  .under-construction {
     .welcome-message {
       h1 {
         font-size: 30px;

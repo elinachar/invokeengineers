@@ -13,9 +13,13 @@ class Ability
       can :manage, Team
       can :manage, Project
     else
-      can :read, :static_pages
-      can [:show, :index], Project
+      can :index, StaticPagesController #uncomment after under construction
+      can :about, StaticPagesController #uncomment after under construction
+      # can [:show, :index], Project #uncomment after under construction
+      # can :under_construction, StaticPagesController
       # can :read,
+      can :login
+      can :sign_up
     end
 
     # The first argument to `can` is the action you are giving the user
