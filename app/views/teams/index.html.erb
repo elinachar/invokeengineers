@@ -8,7 +8,15 @@
           <div class="col-12 col-sm-6">
             <%= link_to team, :action => 'go'  do %>
               <div class="team-card">
-                <%= image_tag team.image_url_url.to_s, class: "img-responsive w-100", alt: team.first_name %>
+                <% unless team.image_url_url.to_s.empty? %>
+                  <%= image_tag team.image_url_url.to_s, class:"img-responsive w-100", alt: team.first_name + team.last_name %><br>
+                <% else %>
+                  <% if team.gender == "male" %>
+                    <%= image_tag "male_user.png", class:"img-responsive w-100", alt: "male-user" %><br>
+                  <% else %>
+                    <%= image_tag "female_user.png", class:"img-responsive w-100", alt: "female-user" %><br>
+                  <% end %>
+                <% end %>
               </div>
             <% end %>
           </div>

@@ -300,6 +300,11 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
+
+    .avatar {
+      min-height: auto;
+      min-width: auto;
+    }
   }
 
   .name {

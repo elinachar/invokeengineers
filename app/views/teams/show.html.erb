@@ -2,11 +2,22 @@
   <div class="row">
     <div class="col-10 offset-1 card">
       <h1>Team Member</h1><br>
-
       <p>
-        <%= image_tag @team.image_url_url.to_s, class:"image-responsive", alt: @team.first_name + @team.last_name %><br>
-        <strong>Image url:</strong>
-        <%= File.basename(@team.image_url_url.to_s)%>
+        <div class="row">
+          <div class="col-10 offset-1">
+            <% unless @team.image_url_url.to_s.empty? %>
+              <%= image_tag @team.image_url_url.to_s, class:"img-responsive w-50", alt: @team.first_name + @team.last_name %><br>
+              <strong>Image url:</strong>
+              <%= File.basename(@team.image_url_url.to_s)%>
+            <% else %>
+              <% if @team.gender == "male" %>
+                <%= image_tag "male_user.png", class:"img-responsive w-50", alt: "male-user" %><br>
+              <% else %>
+                <%= image_tag "female_user.png", class:"img-responsive w-50", alt: "female-user" %><br>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </p>
 
       <p>
@@ -27,6 +38,11 @@
       <p>
         <strong>Description:</strong>
         <%= @team.description %>
+      </p>
+
+      <p>
+        <strong>Gender:</strong>
+        <%= @team.gender %>
       </p>
 
       <br>

@@ -2,7 +2,16 @@
   <% @team_members.each_with_index do |team_member, index| %>
     <div class="row">
       <div class="col-12 col-sm-6 team-member-photo">
-        <%= image_tag team_member.image_url_url.to_s, class: "img-responsive", alt: team_member.first_name %>
+        <% unless team_member.image_url_url.to_s.empty? %>
+          <%= image_tag team_member.image_url_url.to_s, class:"img-responsive", alt: team_member.first_name + team_member.last_name %><br>
+        <% else %>
+          <% if team_member.gender == "male" %>
+            <%= image_tag "male_user.png", class:"img-responsive avatar", alt: "male-user" %><br>
+          <% else %>
+            <%= image_tag "female_user.png", class:"img-responsive avatar", alt: "female-user" %><br>
+          <% end %>
+        <% end %>
+        <%#= image_tag team_member.image_url_url.to_s, class: "img-responsive", alt: team_member.first_name %>
         <p class="name d-block d-sm-none"><%= team_member.first_name + " " + team_member.last_name  %></p>
       </div>
       <% if index.even? %>

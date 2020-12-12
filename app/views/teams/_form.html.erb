@@ -43,6 +43,15 @@
         </div>
       <% end %>
     </div>
+
+    <div class="field">
+      <%= form.label "Gender (if image for user does not exist)" %>
+      <% if team.gender == "female" %>
+        <%= form.select :gender, options_for_select([['female', 'female'], ['male', 'male']]) %>
+      <% else %>
+        <%= form.select :gender, options_for_select([['male', 'male'], ['female', 'female']]) %>
+      <% end %>
+    </div></br>
   </div><br>
 
   <div class="actions">
