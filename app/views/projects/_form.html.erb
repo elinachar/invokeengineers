@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label "Name*" %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :short_description %>
+    <%= f.label "Short Description about company*" %>
     <%= f.text_area :short_description %>
   </div>
 
   <div class="field">
-    <%= f.label :description %>
+    <%= f.label "Description about company*" %>
     <%= f.text_area :description, size: "5x10" %>
   </div>
 
   <div class="field">
-    <%= f.label :location %>
+    <%= f.label "Location*" %>
     <%= f.text_field :location %>
   </div>
 
@@ -47,7 +47,7 @@
   </div><br>
 
   <div class="field">
-    <%= f.label :cover_image_url %><br>
+    <%= f.label "Cover Image*" %><br>
     <div class="row w-100 m-0">
       <div class="col-6 text-left p-0">
         <%= f.file_field :cover_image_url %>
