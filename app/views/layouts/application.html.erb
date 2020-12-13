@@ -42,7 +42,8 @@
   <body>
     <% unless action_name == "under_construction" %>
       <nav class="navbar fixed-top navbar-expand-md navbar-light">
-        <%= link_to root_path do %>
+        <%= link_to index_path do %>
+        <%#= link_to root_path do %>
           <div class="logo navbar-brand smooth">
             <div class="text text-right">
               <span class="invoke">Invoke</span><br>
@@ -63,13 +64,15 @@
               <a class="nav-link" href="/projects">Projects</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link smooth" href="/#contact">Contact</a>
+              <!-- <a class="nav-link smooth" href="/#contact">Contact</a> -->
+              <a class="nav-link smooth" href="/index#contact">Contact</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/about">Αbout</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link smooth" href="/#invoke-engineers">The Invoke Engineers</a>
+              <a class="nav-link smooth" href="/index#invoke-engineers">The Invoke Engineers</a>
+              <!-- <a class="nav-link smooth" href="/#invoke-engineers">The Invoke Engineers</a> -->
             </li>
             <% if user_signed_in? %>
               <li class="nav-item dropdown">
