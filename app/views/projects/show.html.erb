@@ -11,7 +11,7 @@
           <% if @project.year_string.nil? || @project.year_string.empty? %>
             <p class="location-year">@<%= @project.location %></p>
           <% else %>
-            <p class="location-year">@<%= @project.location %> <span>&#8226;</span> <%= @project.year %></p>
+            <p class="location-year">@<%= @project.location %> <span>&#8226;</span> <%= @project.year_string %></p>
           <% end %>
 
         </div>
