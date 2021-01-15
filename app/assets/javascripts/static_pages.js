@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function() {
   // WELCOME
   function resizeDiagonalLineIndex() {
     if (window.location.pathname == "/") { // change when hide under_construction
-    // if (window.location.pathname == "/under-construction") { 
+    // if (window.location.pathname == "/under-construction") {
       var indexWidth = $(".under-construction").outerWidth() * 1.08;
       var indexHeight = $(".under-construction").outerHeight();
       var w = Math.atan(indexHeight / indexWidth)
@@ -14,6 +14,18 @@ $(document).on('turbolinks:load', function() {
       var w = Math.atan(indexHeight / indexWidth)
     }
     $(".line-diagonal").css({"transform": "rotate(-" + w +"rad)", "-ms-transform": "rotate(-" + w +"rad)","  -webkit-transform": "rotate(-" + w +"rad)" })
+  }
+
+  function shiftWelcomeMessageCard() {
+    var welcomeMessageHeight = $(".welcome-card").outerHeight();
+    var windowHeight = $(window).height();
+    var navBarHeight = $("nav").outerHeight();
+    var pT = parseInt($(".welcome").css("padding-top"));
+    var pB = parseInt($(".welcome").css("padding-bottom"));
+    marginTop = (windowHeight - navBarHeight - pT - pB -  welcomeMessageHeight) / 2;
+    if (marginTop > 0 ) {
+      $(".welcome-card").css("margin-top", marginTop + "px");
+    }
   }
 
   // CONTACT
@@ -40,10 +52,12 @@ $(document).on('turbolinks:load', function() {
   // Functions called on resize of window
   $(window).on("resize",function(){
     resizeDiagonalLineIndex();
+    shiftWelcomeMessageCard();
   })
 
   // Functions called on load
   resizeDiagonalLineIndex();
+  shiftWelcomeMessageCard();
 
 })
 

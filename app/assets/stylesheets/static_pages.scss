@@ -9,7 +9,10 @@
 .under-construction {
   background-color: $dark;
   position: relative;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  min-height: calc(100vh - 58px); // Full height minus navigationbar height
+  overflow-x: hidden;
 
   .lines {
     .line {
@@ -39,13 +42,25 @@
     }
   }
 
-  .welcome-message {
-    background-color: white;
-    padding: 80px 50px;
+  .welcome-card {
+    // background-color: white;
+    // background-color: rgba(255, 255, 255, 0.93);
+    background: $off-white;
+    min-height: 350px;
+    height: 75vh;
+    position: relative;
+
+    .welcome-message {
+      width: 90%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
 
     h1 {
-      font-size: 60px;
-      line-height: 77px;
+      font-size: 50px;
+      line-height: 67px;
       font-weight: 300;
       margin-bottom: 0;
     }
@@ -71,7 +86,7 @@
 .under-construction {
   min-height: 100vh;
 
-  .welcome-message {
+  .welcome-card {
     margin-top: 10vh;
     min-height: 80vh;
   }
@@ -349,11 +364,29 @@
 }
 
 
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  // Welcome
+  .welcome,
+  .under-construction {
+    .welcome-card {
+      height: 70vh;
+    }
+
+    h1 {
+      font-size: 60px;
+      line-height: 77px;
+    }
+  }
+}
+
 // SM
 @media (min-width: 576px) and (max-width: 767px){
   .welcome,
   .under-construction {
-    .welcome-message {
+    .welcome-card {
+      min-height: 500px;
+
       h1 {
         font-size: 50px;
         line-height: 67px;
@@ -379,14 +412,13 @@
 }
 
 
-//
-
 // XS
 @media (max-width: 575px) {
   .welcome,
   .under-construction {
-    .welcome-message {
-      padding: 50px 30px;
+    .welcome-card {
+      min-height: 590px;
+      // padding: 50px 30px;
       h1 {
         font-size: 40px;
         line-height: 57px;
@@ -442,7 +474,7 @@
 @media (max-width: 400px) {
   .welcome,
   .under-construction {
-    .welcome-message {
+    .welcome-card {
       h1 {
         font-size: 30px;
         line-height: 52px;
@@ -450,7 +482,6 @@
     }
   }
 }
-
 
 
 // Extra small devices (portrait phones, less than 576px)
