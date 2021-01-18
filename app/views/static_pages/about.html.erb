@@ -1,13 +1,35 @@
-<div class="container about-page">
-  <h1 class="text-center">About Invoke Engineering Group</h1>
+<div class="container-fluid about-page">
   <div class="row">
-    <div class="col-12 col-sm-10 offset-sm-1">
-      <div class="company-description">
-        <%= @infos.about_us %>
+    <div class="col-10 offset-1">
+      <h1 class="text-center">About Invoke Engineering Group</h1>
+      <div class="company-description text-justify">
+        <%= simple_format(@infos.about_us) %>
       </div>
+      <!-- <div class="disciplines">
+        <div class="row">
+          <div class="col-12 col-sm-4 discipline-card text-center">
+            <%= image_tag 'quality.png', class: "img-responsive", alt: "quality favicon" %>
+            <p>High Quality</p>
+          </div>
+          <div class="col-12 col-sm-4 discipline-card text-center">
+            <%= image_tag 'money.png', class: "img-responsive", alt: "quality favicon" %>
+            <p>Within Budget</p>
+          </div>
+          <div class="col-12 col-sm-4 discipline-card text-center">
+            <%= image_tag 'time.png', class: "img-responsive", alt: "quality favicon" %>
+            <p>On Time</p>
+          </div>
+        </div>
+      </div> -->
     </div>
   </div>
+
   <%= link_to projects_path, :action => 'go'  do %>
-    <div class="button border-hover">see our projects</div>
+    <div class="button border-hover">take a look at our projects</div>
   <% end %>
+
+
+  <!-- <h2 class="text-center">Meet The Invoke Engineers</h2> -->
+  <%= render 'team' %>
+
 </div>

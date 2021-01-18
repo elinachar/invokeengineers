@@ -1,7 +1,8 @@
 <div class="container-fluid team-presentation" id="invoke-engineers">
+  <h2 class="text-center">Meet The Invoke Engineers</h2>
   <% @team_members.each_with_index do |team_member, index| %>
     <div class="row">
-      <div class="col-12 col-sm-6 team-member-photo">
+      <div class="col-12 col-md-6 team-member-photo">
         <% unless team_member.image_url_url.to_s.empty? %>
           <%= image_tag team_member.image_url_url.to_s, class:"img-responsive", alt: team_member.first_name + team_member.last_name %><br>
         <% else %>
@@ -12,16 +13,18 @@
           <% end %>
         <% end %>
         <%#= image_tag team_member.image_url_url.to_s, class: "img-responsive", alt: team_member.first_name %>
-        <p class="name d-block d-sm-none"><%= team_member.first_name + " " + team_member.last_name  %></p>
+        <p class="name d-block d-md-none"><%= team_member.first_name + " " + team_member.last_name  %></p>
       </div>
       <% if index.even? %>
-        <div class="col-12 col-sm-6 team-member-info align-self-center">
+        <!-- <div class="col-12 col-sm-6 team-member-info align-self-center"> -->
+        <div class="col-12 col-md-6 team-member-info">
       <% else %>
-        <div class="col-12 col-sm-6 order-sm-first team-member-info align-self-center">
+        <!-- <div class="col-12 col-sm-6 order-sm-first team-member-info align-self-center"> -->
+        <div class="col-12 col-md-6 order-md-first team-member-info">
       <% end %>
-        <p class="name d-none d-sm-block"><%= team_member.first_name + " " + team_member.last_name  %></p>
+        <p class="name d-none d-md-block"><%= team_member.first_name + " " + team_member.last_name  %></p>
         <p class="proffession"><%= team_member.proffession%></p>
-        <p class="description"><%= team_member.description%></p>
+        <p class="description text-justify"><%= team_member.description%></p>
       </div>
     </div>
   <% end %>
