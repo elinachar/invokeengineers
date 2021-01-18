@@ -4,4 +4,8 @@ class Project < ApplicationRecord
   mount_uploader :cover_image_url, ImageUploader
   extend FriendlyId
   friendly_id :name, use: :slugged
+
+  def should_generate_new_friendly_id? #will change the slug if the name changed
+    name_changed?
+  end
 end
