@@ -12,6 +12,17 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project_images = @project.project_images
+    current_id = @project.id
+    @other_projects = Project.where("id > ?", current_id).first(3)
+    if @other_projects.size < 3
+      @other_projects << Project.first
+    end
+    if @other_projects.size < 3
+      @other_projects << Project.second
+    end
+    if @other_projects.size < 3
+      @other_projects << Project.third
+    end
   end
 
   # GET /projects/new

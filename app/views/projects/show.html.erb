@@ -1,7 +1,7 @@
 <div class="container-fluid project show managing text-center">
   <div class="row">
     <div class="col-12 card">
-      <div class="row">
+      <div class="row project-intro-and-description">
         <div class="col-10 offset-1 col-sm-6 offset-sm-0 col-md-6 cover-image">
           <%= image_tag @project.cover_image_url_url.to_s, class:"image-responsive", alt: @project.name %><br>
         </div>
@@ -14,7 +14,6 @@
             <p class="location-year">@<%= @project.location %> <span>&#8226;</span> <%= @project.year_string %></p>
           <% end %>
           <% unless @project.area.nil? || @project.area.empty? %>
-            <!-- <p class="area">Area: <%#= @project.area %></p> -->
             <p class="area"><%= image_tag 'area.png', class: "img-responsive", alt: "area icon" %> <%= @project.area %></p>
           <% end %>
 
@@ -24,26 +23,45 @@
         </div>
       </div>
 
-      <div class="project-images">
-        <% unless @project.photographer.nil? || @project.photographer.empty? %>
-          <p class="photographer">
-            <% if @project.photographer_website.nil? || @project.photographer_website.empty? %>
-              Photos by <%= @project.photographer %>
-            <% else %>
-              Photos by <%= link_to @project.photographer, @project.photographer_website, target: "_blank", class: "photographer-link" %>
+      <% unless @project_images.nil? || @project_images.empty? %>
+        <div class="project-images">
+          <% unless @project.photographer.nil? || @project.photographer.empty? %>
+            <p class="photographer">
+              <% if @project.photographer_website.nil? || @project.photographer_website.empty? %>
+                Photos by <%= @project.photographer %>
+              <% else %>
+                Photos by <%= link_to @project.photographer, @project.photographer_website, target: "_blank", class: "photographer-link" %>
+              <% end %>
+            </p>
+          <% end %>
+
+          <div class="main-carousel">
+            <% @project_images.each_with_index do |project_image, index| %>
+            <%= image_tag project_image.image_url_url.to_s, class: "carousel-image", alt: project_image.image_url_identifier %>
             <% end %>
-          </p>
-        <% end %>
-        <% @project_images.each do |project_image| %>
-          <div class="col-10 offset-1 project-image">
-            <%= image_tag project_image.image_url_url.to_s, class: "image_responsive w-100", alt: project_image.image_url_identifier %>
           </div>
-        <% end %>
+        </div>
+      <% end %>
+
+      <div class="links-to-other-projects">
+        <h3>Other Projects</h3>
+        <div class="row">
+          <% @other_projects.each do |other_project| %>
+            <div class="col-10 offset-1 col-md-4 offset-md-0">
+              <%= link_to other_project, :action => 'go'  do %>
+                <div class="project-card">
+                  <%= image_tag other_project.cover_image_url_url.to_s, class: "img-responsive", alt: other_project.name %>
+                  <p class="name"><%= other_project.name %></p>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
 
       <br>
       <% if  user_signed_in? && (current_user.admin? || current_user.editor?) %>
-        <div class="row">
+        <div class="row mt-4">
           <div class="col-12 text-center">
             <%= link_to 'Edit project', edit_project_path(@project), class: "button" %>
             <%= link_to 'Back to all projects', projects_path, class: "button" %>

@@ -30,8 +30,6 @@
   }
 
   .card {
-    padding-left: 50px;
-    padding-right: 50px;
     img {
       width: 100%;
     }
@@ -39,28 +37,39 @@
 }
 
 .project.show {
-  .cover-image img {
-    width: 100%;
-  }
 
-  .name {
-    font-weight: 400;
-    font-size: 25px;
+  .card {
+    padding-left: 0;
+    padding-right: 0;
   }
+  .project-intro-and-description {
+    padding-left: 50px;
+    padding-right: 50px;
 
-  .area {
-    img {
-      width: 20px;
-      margin-top: -5px;
+    .cover-image img {
+      width: 100%;
+    }
+
+    .name {
+      font-weight: 400;
+      font-size: 25px;
+    }
+
+    .area {
+      img {
+        width: 20px;
+        margin-top: -5px;
+      }
+    }
+
+    .description {
+      margin: 30px 0 20px 0;
+      text-align: left;
     }
   }
 
-  .description {
-    margin: 30px 0 20px 0;
-    text-align: left;
-  }
-
   .project-images {
+    margin-bottom: 60px;
     .photographer {
       margin-bottom: 10px;
 
@@ -74,12 +83,37 @@
       }
     }
 
-    .project-image {
-      margin-bottom: 20px;
+    .carousel-image {
+      height: 450px;
+      width: auto;
+      margin: 0 10px;
+      opacity: 0.3;
     }
+
+    .carousel-image.is-selected {
+      opacity: 1;
+    }
+  }
+
+  .links-to-other-projects {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
+
 .project.index {
-  padding: 0 0 20px 0!important;
+  padding: 0 20px 20px 20px!important;
+}
+
+
+// XS and SM
+@media (max-width: 767px) {
+  .project.show {
+    .project-images {
+      .carousel-image {
+        height: 300px;
+      }
+    }
+  }
 }
