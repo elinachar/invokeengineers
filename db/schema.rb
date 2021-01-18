@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_12_174555) do
+ActiveRecord::Schema.define(version: 2021_01_18_095931) do
 
   create_table "infos", force: :cascade do |t|
     t.text "short_description"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_12_12_174555) do
     t.string "photographer"
     t.string "photographer_website"
     t.string "year_string"
+    t.string "area"
   end
 
   create_table "teams", force: :cascade do |t|

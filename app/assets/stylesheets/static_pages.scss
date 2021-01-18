@@ -98,6 +98,7 @@
 .projects,
 .project.index {
   padding: 35px;
+  padding-bottom: 20px;
 
   h1 {
     margin-bottom: 20px;
@@ -304,6 +305,8 @@
 // About
 .about {
   padding: 35px;
+  padding-bottom: 40px;
+  border-top: 17px solid $dark;
 
   h1 {
     margin-bottom: 30px;

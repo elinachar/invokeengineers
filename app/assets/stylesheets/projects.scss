@@ -30,6 +30,8 @@
   }
 
   .card {
+    padding-left: 50px;
+    padding-right: 50px;
     img {
       width: 100%;
     }
@@ -44,6 +46,13 @@
   .name {
     font-weight: 400;
     font-size: 25px;
+  }
+
+  .area {
+    img {
+      width: 20px;
+      margin-top: -5px;
+    }
   }
 
   .description {
