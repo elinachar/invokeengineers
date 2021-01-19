@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Invoke Engineers</title>
+    <% if content_for?(:title) %>
+      <title><%= yield(:title) %></title>
+    <% else %>
+      <title>Invoke Engineers | Design | Construction | Renovation</title>
+    <% end %>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,9 +14,9 @@
     <% if content_for?(:html_meta_tags) %>
       <%= yield(:html_meta_tags) %>
     <% else %>
-      <meta name="description" content="Invoke Engineers">
-      <meta name="keywords" content="invoke egineers, invoke engineering group, kalamata, construction office">
-      <meta name="image" content='<%= image_tag( "https://invokeengineers.com/logo.png" , alt: "Invoke Engineers") %>'>
+      <meta name="description" content="Invoke Engineers is a design, construction and renovation firm based on Kalamata that offers exclusive, functional and sustainable residences and workspaces.">
+      <meta name="keywords" content="invoke egineers, invoke engineering group, kalamata, construction office, design, renovation, greece">
+      <meta name="image" content='<%= image_tag( "https://invokeengineers.com/meta-image-logo.png" , alt: "Invoke Engineers") %>'>
     <% end %>
 
     <!-- Favicon Tag -->
@@ -20,6 +24,35 @@
 
     <!-- Canonical Tag -->
     <link rel="canonical" href="<%=request.original_url%>"/>
+
+    <!-- Facebook meta tags -->
+    <% if content_for?(:facebook_meta_tags) %>
+      <%= yield(:facebook_meta_tags) %>
+    <% else %>
+      <meta property="og:title" content="Invoke Engineers" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://invokeengineers.com/" />
+      <meta property="og:image" content="https://invokeengineers.com/meta-image-logo.png">
+      <meta property="og:image:alt" content="Invoke Engineers" />
+      <meta property="og:description" content="Invoke Engineers is a design, construction and renovation firm based on Kalamata that offers exclusive, functional and sustainable residences and workspaces." />
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="Invoke Engineers">
+    <% end %>
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- <meta name="twitter:site" content="@bakeisyum" /> -->
+    <!-- <meta name="twitter:creator" content="@elinacharalampous" /> -->
+    <% if content_for?(:twitter_meta_tags) %>
+      <%= yield(:twitter_meta_tags) %>
+    <% else %>
+      <meta name="twitter:title" content="Invoke Engineers">
+      <meta name="twitter:description" content="Invoke Engineers is a design, construction and renovation firm based on Kalamata that offers exclusive, functional and sustainable residences and workspaces.">
+      <meta name="twitter:image" content="https://invokeengineers.com/meta-image-logo.png">
+    <% end %>
+
+    <!-- Pinterest meta tag -->
+    <!-- <meta name="p:domain_verify" content="56687de4c1dd5d5006afdfe6be3abbf7"/> -->
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -41,6 +74,67 @@
     <!-- CSS and JS -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Google Structed Data -->
+  <% if content_for?(:structured_data) %>
+    <%= yield(:structured_data) %>
+  <% else %>
+    <script type='application/ld+json'>
+    {
+      "@context":"https://schema.org",
+      "@graph":[{
+        "@type":"Organization",
+        "@id":"https://invokeengineers.com/#organization",
+        "name":"Invoke Engineers",
+        "url":"https://invokeengineers.com/",
+        "sameAs":[
+          "https://www.instagram.com/invokeengineers/"],
+        "logo":{
+          "@type":"ImageObject",
+          "@id":"https://invokeengineers.com/#logo",
+          "inLanguage":"en-US",
+          "url":"https://invokeengineers.com/logo.png",
+          "width":300,
+          "height":95,
+          "caption":"Invoke Engineers"},
+        "image":{
+          "@id":"https://invokeengineers.com/#logo"},
+          "address": {
+            "@type": "PostalAddress",
+            "postalCode": "24100",
+            "addressCountry": "Greece",
+            "addressLocality": "Kalamata",
+            "streetAddress": "2 Pantazopoulou Street"},
+          "email": "info@invokeengineers.com",
+          "telephone": "(0030) 2721025733"
+        },{
+        "@type":"WebSite",
+        "@id":"https://invokeengineers.com/#website",
+        "url":"https://invokeengineers.com/",
+        "name":"Invoke Engineers",
+        "description":"Invoke Engineers is a design, construction and renovation firm based on Kalamata that offers exclusive, functional and sustainable residences and workspaces.",
+        "publisher":{
+          "@id":"https://invokeengineers.com/#organization"},
+        "inLanguage":"en-US"
+        },{
+        "@type":"CollectionPage",
+        "@id":"https://invokeengineers.com/#webpage",
+        "url":"https://invokeengineers.com/",
+        "name":"Invoke Engineers: Recent Projects",
+        "isPartOf":{
+          "@id":"https://invokeengineers.com/#website"},
+        "about":{
+          "@id":"https://invokeengineers.com/#organization"},
+        "description":"Take a loot at the most recent procents of the Invoke Engineers.",
+        "inLanguage":"en-US",
+        "potentialAction":[{
+          "@type":"ReadAction",
+          "target":["https://invokeengineers.com/"]}]
+        }
+      ]
+    }
+    </script>
+  <% end %>
   </head>
 
   <body>

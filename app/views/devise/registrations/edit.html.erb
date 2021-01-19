@@ -1,3 +1,21 @@
+<% content_for :title,  "Edit Account - Invoke Engineers" %>
+<%= content_for :facebook_meta_tags do %>
+  <meta property="og:title" content="Edit Account - Invoke Engineers" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:image" content="https://invokeengineers.com/meta-image-logo.png">
+  <meta property="og:image:alt" content="Invoke Engineers" />
+  <meta property="og:description" content="Invoke Engineers is a design, construction and renovation firm based on Kalamata that offers exclusive, functional and sustainable residences and workspaces." />
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Invoke Engineers">
+<% end %>
+<%= content_for :twitter_meta_tags do %>
+<meta name="twitter:title" content="Edit Account - Invoke Engineers">
+<meta name="twitter:description" content="Invoke Engineers is a design, construction and renovation firm based on Kalamata that offers exclusive, functional and sustainable residences and workspaces.">
+<meta name="twitter:image" content="https://invokeengineers.com/meta-image-logo.png">
+<% end %>
+
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>

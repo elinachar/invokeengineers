@@ -1,3 +1,55 @@
+<!-- Meta Data -->
+<% content_for :title, "Projects - Invoke Engineers" %>
+
+<%= content_for :html_meta_tags do %>
+  <meta name="description" content="The most recent projects designed and constructed by the Invoke Engineers.">
+  <meta name="keywords" content="invoke egineers, invoke engineering group, projects, recent projects, kalamata, construction office, design, renovation, greece">
+  <meta name="image" content='<%= image_tag( "https://invokeengineers.com/projects-meta-image.jpg" , alt: "Projects - Invoke Engineers") %>'>
+<% end %>
+
+<%= content_for :facebook_meta_tags do %>
+  <meta property="og:title" content="Projects - Invoke Engineers" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://invokeengineers.com/projects" />
+  <meta property="og:image" content="https://invokeengineers.com/projects-meta-image.jpg">
+  <meta property="og:image:alt" content="Projects - Invoke Engineers" />
+  <meta property="og:description" content="The most recent projects designed and constructed by the Invoke Engineers." />
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Invoke Engineers">
+<% end %>
+
+<%= content_for :twitter_meta_tags do %>
+<meta name="twitter:title" content="Projects - Invoke Engineers">
+<meta name="twitter:description" content="The most recent projects designed and constructed by the Invoke Engineers.">
+<meta name="twitter:image" content="https://invokeengineers.com/projects-meta-image.jpg">
+<% end %>
+
+<%= content_for :structured_data do %>
+  <script type='application/ld+json'>
+    {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"WebSite",
+      "@id":"https://invokeengineers.com/#website",
+      "url":"https://invokeengineers.com/",
+      "name":"Invoke Engineers",
+      "description":"Invoke Engineers is a design, construction and renovation firm based on Kalamata that offers exclusive, functional and sustainable residences and workspaces.",
+      "inLanguage":"en-US>"},
+      {
+      "@type":"CollectionPage",
+      "@id":"https://invokeengineers.com/#webpage",
+      "url":"https://invokeengineers.com/projects",
+      "name":"Projects - Invoke Engineers",
+      "isPartOf":{"@id":"https://invokeengineers.com/project#website"},
+      "description":"The most recent projects designed and constructed by the Invoke Engineers.",
+      "inLanguage":"en-US",
+      "potentialAction":[{
+        "@type":"ReadAction",
+        "target":["https://invokeengineers.com/projects"]}]}
+    ]}
+  </script>
+<% end %>
+
 <div class="container-fluid project index managing text-center">
   <div class="row">
     <div class="card">

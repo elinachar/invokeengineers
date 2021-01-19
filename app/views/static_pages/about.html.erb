@@ -1,3 +1,56 @@
+<!-- Meta Data -->
+<% content_for :title, "About - Invoke Engineers" %>
+<%= content_for :facebook_meta_tags do %>
+  <meta property="og:title" content="About - Invoke Engineers" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://invokeengineers.com/about" />
+  <meta property="og:image" content="https://invokeengineers.com/meta-image-logo.png">
+  <meta property="og:image:alt" content="Invoke Engineers" />
+  <meta property="og:description" content="Invoke Engineers is a design, construction and renovation firm based on Kalamata that offers exclusive, functional and sustainable residences and workspaces." />
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Invoke Engineers">
+<% end %>
+<%= content_for :twitter_meta_tags do %>
+<meta name="twitter:title" content="About - Invoke Engineers">
+<meta name="twitter:description" content="Invoke Engineers is a design, construction and renovation firm based on Kalamata that offers exclusive, functional and sustainable residences and workspaces.">
+<meta name="twitter:image" content="https://invokeengineers.com/meta-image-logo.png">
+<% end %>
+<%= content_for :structured_data do %>
+  <script type='application/ld+json'>
+  {
+    "@context":"https://schema.org",
+    "@graph":[{
+      "@type":"Organization",
+      "@id":"https://invokeengineers.com/#organization",
+      "name":"Invoke Engineers",
+      "url":"https://invokeengineers.com",
+      "sameAs":[
+        "https://www.instagram.com/invokeengineers/"],
+      "logo":{
+        "@type":"ImageObject",
+        "@id":"https://invokeengineers.com/#logo",
+        "inLanguage":"en-US",
+        "url":"https://invokeengineers.com/logo.png",
+        "width":300,
+        "height":95,
+        "caption":"Invoke Engineers"},
+      "image":{
+        "@id":"https://invokeengineers.com/#logo"}
+      },{
+      "@type":"WebPage",
+      "@id":"https://invokeengineers.com/#webpage",
+      "url":"https://invokeengineers.com/about",
+      "name":"About - Invoke Engineers",
+      "description":"Invoke Engineers is a design, construction and renovation firm based on Kalamata that offers exclusive, functional and sustainable residences and workspaces.",
+      "publisher":{
+        "@id":"https://invokeengineers.com/#organization"},
+      "inLanguage":"en-US"
+      }
+    ]
+  }
+  </script>
+<% end %>
+
 <div class="container-fluid about-page">
   <div class="row">
     <div class="col-10 offset-1">

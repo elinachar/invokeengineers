@@ -1,3 +1,50 @@
+<!-- Meta Data -->
+<% content_for :title, @project.name + " - Invoke Engineers"  %>
+
+<%= content_for :html_meta_tags do %>
+  <meta name="description" content="<%= @project.short_description %>">
+  <meta name="keywords" content="invoke egineers, invoke engineering group, projects, recent projects, kalamata, construction office, design, renovation, greece">
+  <meta name="image" content="<%= root_url + @project.cover_image_url_url.to_s[1..-1] %>">
+<% end %>
+
+<%= content_for :facebook_meta_tags do %>
+  <meta property="og:title" content="Projects - Invoke Engineers" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://invokeengineers.com/projects" />
+  <meta property="og:image" content="<%= root_url + @project.cover_image_url_url.to_s[1..-1] %>">
+  <meta property="og:image:alt" content="<%= @project.name %>" />
+  <meta property="og:description" content="<%= @project.short_description %>" />
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Invoke Engineers">
+<% end %>
+
+<%= content_for :twitter_meta_tags do %>
+<meta name="twitter:title" content="Projects - Invoke Engineers">
+<meta name="twitter:description" content="<%= @project.short_description %>">
+<meta name="twitter:image" content="<%= root_url + @project.cover_image_url_url.to_s[1..-1] %>">
+<% end %>
+
+<%= content_for :structured_data do %>
+  <script type='application/ld+json'>
+    {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "<%= request.original_url %>"
+    },
+    "headline": "<%= @project.name %>",
+    "image": [
+      "<%= root_url + @project.cover_image_url_url.to_s[1..-1] %>"
+     ],
+    "author": {
+      "@type": "Organization",
+      "name": "Invoke Engineers"
+    }
+    }
+  </script>
+<% end %>
+
 <div class="container-fluid project show managing text-center">
   <div class="row">
     <div class="col-12 card">
@@ -7,7 +54,7 @@
         </div>
         <div class="col-10 offset-1 col-sm-6 offset-sm-0 align-self-center">
           <p class="name"><%= @project.name %></p>
-          <p class="short-description"><i><%= @project.short_description%></i></p>
+          <p class="short-description"><i><%= @project.short_description %></i></p>
           <% if @project.year_string.nil? || @project.year_string.empty? %>
             <p class="location-year">@<%= @project.location %></p>
           <% else %>
