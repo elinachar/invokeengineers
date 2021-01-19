@@ -81,16 +81,15 @@ nav {
   }
 
   .navbar-toggler {
-    outline: 0px solid rgba(50, 115, 220, 0.3);
-    outline-offset: 0;
-    transition: outline 0.5s, outline-offset 0.5s;
+    border: none;
+    outline: none;
+    i {
+      color: $dark;
+    }
   }
 
-  .navbar-toggler:hover {
-    outline: 5px solid;
-    outline-offset: -5px;
-    outline-color: #929292; //fallback
-    outline-color: rgba(37, 37, 37, 0.2);
+  .navbar-toggler:hover i {
+    color: grey;
   }
 }
 
