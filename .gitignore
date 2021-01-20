@@ -34,4 +34,7 @@
 /config/local_env.yml
 
 # Ignore /public/upload
-public/uploads
+/public/uploads
+
+# Ignore /public/sitemap.xml.gz
+/public/sitemap.xml.gz
