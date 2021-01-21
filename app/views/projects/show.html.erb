@@ -52,7 +52,7 @@
         <div class="col-10 offset-1 col-sm-6 offset-sm-0 col-md-6 cover-image">
           <%= image_tag @project.cover_image_url_url.to_s, class:"image-responsive", alt: @project.name %><br>
         </div>
-        <div class="col-10 offset-1 col-sm-6 offset-sm-0 align-self-center">
+        <div class="col-10 offset-1 col-sm-6 offset-sm-0 align-self-sm-center align-self-xl-start">
           <p class="name"><%= @project.name %></p>
           <p class="short-description"><i><%= @project.short_description %></i></p>
           <% if @project.year_string.nil? || @project.year_string.empty? %>
@@ -63,9 +63,12 @@
           <% unless @project.area.nil? || @project.area.empty? %>
             <p class="area"><%= image_tag 'area.png', class: "img-responsive", alt: "area icon" %> <%= @project.area %></p>
           <% end %>
+          <div class="d-none d-xl-block text-justify description">
+            <%= simple_format(@project.description) %>
+          </div>
 
         </div>
-        <div class="col-12 description text-justify">
+        <div class="col-12 d-block d-xl-none description text-justify">
           <%= simple_format(@project.description) %>
         </div>
       </div>
@@ -90,21 +93,27 @@
         </div>
       <% end %>
 
-      <div class="links-to-other-projects">
-        <h3>Other Projects</h3>
-        <div class="row">
-          <% @other_projects.each do |other_project| %>
-            <div class="col-10 offset-1 col-md-4 offset-md-0">
-              <%= link_to other_project, :action => 'go'  do %>
-                <div class="project-card">
-                  <%= image_tag other_project.cover_image_url_url.to_s, class: "img-responsive", alt: other_project.name %>
-                  <p class="name"><%= other_project.name %></p>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
+
+      <%= link_to projects_path, :action => 'go'  do %>
+        <div class="button border-hover m-auto">all projects</div>
+      <% end %>
+      <% if false %>
+        <div class="links-to-other-projects">
+          <h3>Other Projects</h3>
+          <div class="row">
+            <% @other_projects.each do |other_project| %>
+              <div class="col-10 offset-1 col-md-4 offset-md-0">
+                <%= link_to other_project, :action => 'go'  do %>
+                  <div class="project-card">
+                    <%= image_tag other_project.cover_image_url_url.to_s, class: "img-responsive", alt: other_project.name %>
+                    <p class="name"><%= other_project.name %></p>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
 
       <br>
       <% if  user_signed_in? && (current_user.admin? || current_user.editor?) %>

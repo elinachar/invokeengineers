@@ -106,6 +106,17 @@
   padding: 0 20px 20px 20px!important;
 }
 
+// XS
+@media (max-width: 575px) {
+
+  .project.show {
+    .project-intro-and-description {
+      .description {
+        margin-top: 0px;
+      }
+    }
+  }
+}
 
 // XS and SM
 @media (max-width: 767px) {
@@ -113,6 +124,28 @@
     .project-images {
       .carousel-image {
         height: 300px;
+      }
+    }
+  }
+}
+
+// SM
+@media (min-width: 576px) and (max-width: 767px){
+  .project.show {
+    .project-intro-and-description {
+      .description {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .project.show {
+    .project-intro-and-description {
+      .description {
+        margin-bottom: 30px;
       }
     }
   }

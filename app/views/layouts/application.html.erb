@@ -219,20 +219,27 @@
       <footer>
         <div class="container-fluid text-center">
           <div class="social-media">
-            <% unless @infos.facebook_url.nil? || @infos.facebook_url.empty?  %>
-              <div class="facebook social-link">
-                <%= link_to "<i class='fab fa-facebook-f'></i>".html_safe, @infos.facebook_url, target: "blank", class: "yellow-hover" %>
-              </div>
-            <% end %>
-            <% unless @infos.twitter_url.nil? || @infos.twitter_url.empty?  %>
-              <div class="twitter social-link">
-                <%= link_to "<i class='fab fa-twitter'></i>".html_safe, @infos.facebook_url, target: "blank", class: "yellow-hover" %>
-              </div>
-            <% end %>
-            <% unless @infos.instagram_url.nil? || @infos.instagram_url.empty?  %>
-              <div class="instagram social-link">
+            <% if (@infos.facebook_url.nil? || @infos.facebook_url.empty?) && (@infos.twitter_url.nil? || @infos.twitter_url.empty?) && (!@infos.instagram_url.nil? || !@infos.instagram_url.empty?) %>
+              <div class="instagram social-link only-instagram text-center">
+                <p>Follow us on</p>
                 <%= link_to "<i class='fab fa-instagram'></i>".html_safe, @infos.instagram_url, target: "blank", class: "yellow-hover" %>
               </div>
+            <% else %>
+              <% unless @infos.facebook_url.nil? || @infos.facebook_url.empty?  %>
+                <div class="facebook social-link">
+                  <%= link_to "<i class='fab fa-facebook-f'></i>".html_safe, @infos.facebook_url, target: "blank", class: "yellow-hover" %>
+                </div>
+              <% end %>
+              <% unless @infos.twitter_url.nil? || @infos.twitter_url.empty?  %>
+                <div class="twitter social-link">
+                  <%= link_to "<i class='fab fa-twitter'></i>".html_safe, @infos.facebook_url, target: "blank", class: "yellow-hover" %>
+                </div>
+              <% end %>
+              <% unless @infos.instagram_url.nil? || @infos.instagram_url.empty?  %>
+                <div class="instagram social-link">
+                  <%= link_to "<i class='fab fa-instagram'></i>".html_safe, @infos.instagram_url, target: "blank", class: "yellow-hover" %>
+                </div>
+              <% end %>
             <% end %>
           </div>
           <% if Date.today.year > 2020 %>

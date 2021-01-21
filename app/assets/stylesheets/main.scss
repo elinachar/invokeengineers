@@ -142,6 +142,22 @@ footer {
       text-decoration: underline;
     }
   }
+
+  .social-media {
+    margin-bottom: 20px;
+    .only-instagram {
+      border-color: $dark;
+      padding: 5px 50px;
+
+      p {
+        margin-bottom: 5px;
+      }
+
+      i {
+        font-size: 25px;
+      }
+    }
+  }
 }
 
 .social-media {
@@ -149,5 +165,11 @@ footer {
     display: inline-block;
     font-size: 20px;
     padding: 5px;
+  }
+
+  .only-instagram {
+    border: 1px solid;
+    border-left: none;
+    border-right: none;
   }
 }
