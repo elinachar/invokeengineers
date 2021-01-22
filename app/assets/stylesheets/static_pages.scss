@@ -336,18 +336,6 @@
   h1 {
     margin-bottom: 30px;
   }
-
-  // .disciplines {
-  //   .discipline-card {
-  //     // width: 50%;
-  //     background: grey;
-  //     margin: auto;
-  //     padding: 30px 0;
-  //     img{
-  //       width: 50%;
-  //     }
-  //   }
-  // }
 }
 
 // Team
@@ -414,7 +402,12 @@
 @media (min-width: 1200px) {
   .team-presentation {
     .team-member-photo {
-      height: max(550px, 33.33333333vw);
+      // height: max(550px, 33.33333333vw);
+      height: 450px;
+    }
+
+    .team-member-info {
+      padding-top: 10px;
     }
   }
 }
@@ -469,11 +462,11 @@
     .team-member-photo {
       position: relative;
       text-align: center;
-      height: 450px;
+      height: 350px;
 
       img {
-        width: 80%;
-        height: auto;
+        // width: 80%;
+        // height: auto;
       }
     }
   }
@@ -519,7 +512,6 @@
   .under-construction {
     .welcome-card {
       min-height: 590px;
-      // padding: 50px 30px;
       h1 {
         font-size: 40px;
         line-height: 57px;
@@ -550,11 +542,11 @@
     .team-member-photo {
       position: relative;
       text-align: center;
-      height: 400px;
+      height: 300px;
 
       img {
-        width: 100%;
-        height: auto;
+        // width: 100%; //uncomment for full width at small screens
+        // height: auto; //uncomment for full width at small screens
       }
     }
   }

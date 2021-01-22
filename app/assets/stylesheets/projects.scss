@@ -63,12 +63,13 @@
     }
 
     .description {
-      margin: 30px 0 20px 0;
+      margin: 30px 0 0 0;
       text-align: left;
     }
   }
 
   .project-images {
+    margin-top: 20px;
     margin-bottom: 60px;
     .photographer {
       margin-bottom: 10px;
@@ -141,12 +142,4 @@
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .project.show {
-    .project-intro-and-description {
-      .description {
-        margin-bottom: 30px;
-      }
-    }
-  }
-}
+// @media (min-width: 1200px) {...}
