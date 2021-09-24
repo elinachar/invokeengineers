@@ -1218,7 +1218,6 @@ var GUID = 0;
 var instances = {};
 
 function Flickity( element, options ) {
-  console.log("call flickity")
   var queryElement = utils.getQueryElement( element );
   if ( !queryElement ) {
     if ( console ) {

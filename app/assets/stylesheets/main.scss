@@ -137,14 +137,16 @@ footer {
   padding: 15px;
 
   .created-by {
-    padding-bottom: 15px;
+    font-size: 13px;
+    padding-bottom: 20px;
     .link {
       text-decoration: underline;
     }
   }
 
   .social-media {
-    margin-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 40px;
     .only-instagram {
       border-color: $dark;
       padding: 5px 50px;

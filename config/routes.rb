@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post 'thank-you', to: 'static_pages#contact_form_submitted'
   get "about", to: 'static_pages#about'
   get "index", to: 'static_pages#index'
+  get "index-new", to: 'static_pages#index_new'
   root 'static_pages#under_construction'
 
   # root "static_pages#index"

@@ -1,6 +1,53 @@
 $(document).on('turbolinks:load', function() {
   // INDEX
 
+  // CAROUSEL
+  // $('.index-carousel').flickity({
+    // options
+    // cellAlign: 'left',
+    // contain: true,
+    // rightToLeft: true,
+    // imagesLoaded: true, // for proper loading images when linking to other projects whithout having to reload or resize window
+    // freeScroll: true, //Enables content to be freely scrolled and flicked without aligning cells to an end position.
+    // freeScrollFriction: 0.03 // lower friction, slides easier  Default freeScrollFriction: 0.075.
+    // wrapAround: true, //for endless loop
+    // prevNextButtons: false, // disable previous & next buttons
+    // pageDots: false // disable dots
+    // fullscreen: true,
+    // lazyLoad: 3,
+
+    // autoPlay: true, //milliseconds
+  // });
+
+var $carousel = $('.index-carousel').flickity({
+  imagesLoaded: true, // for proper loading images when linking to other projects whithout having to reload or resize window
+  autoPlay: 5000, //milliseconds
+  wrapAround: true, //for endless loop
+  prevNextButtons: false, // disable previous & next buttons
+  pauseAutoPlayOnHover: false, //do not stop carousel when mouse hovers it
+  freeScrollFriction: 0.09,
+  rightToLeft: true,
+});
+var $caption = $('.carousel-caption');
+// Flickity instance
+var flkty = $carousel.data('flickity');
+
+$carousel.on( 'select.flickity', function() {
+  // set the caption from the data-caption of the carousel image
+  $('.carousel-caption').addClass("is-selected");
+  $caption.text( $(flkty.selectedElement).data("caption") );
+  setTimeout(
+    function()
+    {
+      $(".carousel-caption").removeClass("is-selected");
+    }, 3500
+  )
+});
+
+
+
+
+
   // WELCOME
   function resizeDiagonalLineIndex() {
     if (window.location.pathname == "/") { // change when hide under_construction

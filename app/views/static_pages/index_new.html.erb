@@ -1,0 +1,14 @@
+<!-- <div class="index-carousel" data-flickity='{ "rightToLeft": true,  "autoPlay": 5000,
+ "wrapAround": true, "prevNextButtons": false, "pauseAutoPlayOnHover": false , "freeScrollFriction": 0.09 }'> -->
+ <div class="index-carousel">
+  <%#= image_tag "index_carousel_welcome.jpg", class: "carousel-image", data: {caption: "Welcome to Invoke Engineering Group"}, alt: "image design" %>
+  <%= image_tag "index_carousel_design.jpg", class: "carousel-image", data: {caption: "Design"}, alt: "image design" %>
+  <%= image_tag "index_carousel_construction.jpg", class: "carousel-image", data: {caption: "Construction"}, alt: "image construction" %>
+  <%= image_tag "index_carousel_rennovation_2.jpg", class: "carousel-image", data: {caption: "Rennovation"}, alt: "rennovation" %>
+</div>
+<p class="carousel-caption"></p>
+
+<%#= render 'welcome' %>
+<%= render 'projects' %>
+<%= render 'about' %>
+<%= render 'contact' %>

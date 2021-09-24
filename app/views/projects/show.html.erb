@@ -85,9 +85,9 @@
             </p>
           <% end %>
 
-          <div class="main-carousel">
+          <div class="main-carousel index">
             <% @project_images.each_with_index do |project_image, index| %>
-            <%= image_tag project_image.image_url_url.to_s, class: "carousel-image", alt: project_image.image_url_identifier %>
+              <%= image_tag project_image.image_url_url.to_s, class: "carousel-image", alt: project_image.image_url_identifier %>
             <% end %>
           </div>
         </div>

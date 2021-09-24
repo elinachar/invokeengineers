@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# Needed for an error in bundle install and for a specific ruby version
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
+
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
